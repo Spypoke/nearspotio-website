@@ -1,0 +1,1032 @@
+<!-- =========================
+     Datei: /privacy/index.html
+     ========================= -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <script>!function(){var t=localStorage.getItem('nearspotio-theme');if(t)document.documentElement.dataset.theme=t}()</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>nearspotio – Datenschutz / Privacy</title>
+  <meta name="description" content="Datenschutzerklärung / Privacy Policy für NearSpotio" />
+
+  <link rel="canonical" href="https://www.nearspotio.app/privacy/" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
+
+  <style>
+    /* ======== VARIABLES ======== */
+    :root {
+      --bg: #06080d;
+      --bg2: #0a0d14;
+      --bg3: #0e1119;
+      --text: rgba(255, 255, 255, .93);
+      --muted: rgba(255, 255, 255, .62);
+      --line: rgba(255, 255, 255, .10);
+      --card: rgba(255, 255, 255, .04);
+      --card-hover: rgba(255, 255, 255, .07);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .5);
+      --radius: 20px;
+      --accent: #7c5cff;
+      --accent2: #2dd4bf;
+      --n-color: #C79A2E;
+      --s-color: #5FB3C8;
+      --max: 1260px;
+      --nav-bg: rgba(6, 8, 13, .82);
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f5fa;
+      --bg2: #edeef5;
+      --bg3: #e6e7f0;
+      --text: rgba(0, 0, 0, .88);
+      --muted: rgba(0, 0, 0, .52);
+      --line: rgba(0, 0, 0, .08);
+      --card: rgba(255, 255, 255, .70);
+      --card-hover: rgba(255, 255, 255, .90);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .06);
+      --nav-bg: rgba(244, 245, 250, .82);
+    }
+
+    /* ======== RESET ======== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; max-width: 100%; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ======== NAV ======== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--line);
+      transition: background .35s ease, border-color .35s ease;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .logo-dark { display: block; }
+    .logo-light { display: none; }
+    [data-theme="light"] .logo-dark { display: none; }
+    [data-theme="light"] .logo-light { display: block; }
+    .logo img { width: 100%; height: 100%; display: block; }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: .2px;
+    }
+
+    .brand-part {
+      white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all .15s ease;
+      user-select: none;
+    }
+
+    .btn:hover { color: var(--text); background: var(--card); }
+    .btn.active {
+      color: var(--text);
+      border-color: rgba(124, 92, 255, .45);
+      background: rgba(124, 92, 255, .12);
+    }
+    .btn:active { transform: scale(.96); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .theme-icon { display: block; }
+
+    /* ======== PAGE HEADER ======== */
+    .page-header {
+      padding: 100px 24px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header-glow {
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 700px;
+      background: radial-gradient(ellipse, rgba(124, 92, 255, .20) 0%, rgba(45, 212, 191, .08) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .page-header-glow {
+      background: radial-gradient(ellipse, rgba(124, 92, 255, .12) 0%, rgba(45, 212, 191, .06) 40%, transparent 70%);
+    }
+
+    .page-header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .page-header .sub {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 450;
+      line-height: 1.6;
+    }
+
+    .page-header .sub strong { color: var(--text); }
+
+    .back-btn {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color .15s ease;
+    }
+    .back-btn:hover { color: var(--text); }
+
+    /* ======== CONTENT ======== */
+    .privacy-wrap {
+      padding: 0 24px 60px;
+    }
+
+    .privacy-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content section { display: none; }
+    .content section.active { display: block; }
+
+    h2 {
+      margin: 32px 0 10px 0;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      color: var(--text);
+    }
+
+    h2:first-child { margin-top: 0; }
+
+    p, li {
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+      font-weight: 450;
+    }
+
+    ul {
+      margin: 6px 0 0 18px;
+      padding: 0;
+    }
+
+    strong { color: var(--text); }
+
+    a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 255, 255, .25);
+      transition: all .15s ease;
+    }
+
+    a:hover { color: var(--text); border-bottom-color: rgba(255, 255, 255, .50); }
+    [data-theme="light"] a { border-bottom-color: rgba(0, 0, 0, .18); }
+    [data-theme="light"] a:hover { border-bottom-color: rgba(0, 0, 0, .40); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .note {
+      margin: 18px 0;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(124, 92, 255, .25);
+      background: rgba(124, 92, 255, .08);
+      color: var(--muted);
+    }
+
+    .note a { color: var(--muted); }
+    [data-theme="light"] .note { background: rgba(124, 92, 255, .06); border-color: rgba(124, 92, 255, .16); }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    /* ======== FOOTER ======== */
+    .footer-wrap {
+      border-top: 1px solid var(--line);
+      padding: 20px 24px;
+      transition: border-color .35s ease;
+    }
+
+    .footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 255, 255, .20);
+      transition: all .15s ease;
+    }
+
+    .footer a:hover { color: var(--text); border-bottom-color: rgba(255, 255, 255, .45); }
+    [data-theme="light"] .footer a { border-bottom-color: rgba(0, 0, 0, .15); }
+    [data-theme="light"] .footer a:hover { border-bottom-color: rgba(0, 0, 0, .35); }
+    .footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ======== ANIMATIONS ======== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-header-inner { animation: fadeInUp .5s ease both; }
+    .privacy-inner { animation: fadeInUp .5s ease .08s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-header-inner, .privacy-inner { animation: none; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-inner { padding: 0 16px; min-width: 0; }
+      .nav-left { gap: 10px; min-width: 0; flex: 1 1 auto; overflow: hidden; }
+      .nav-actions { flex: 0 0 auto; }
+      .back-btn { display: none; }
+      .brand { min-width: 0; flex: 0 1 auto; overflow: hidden; }
+    }
+
+    /* ======== THEME TRANSITIONS ======== */
+    body, .nav, .footer-wrap, .footer a, .btn, .note, a, strong, code {
+      transition: background .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+  </style>
+
+  <!-- Cookie consent (loads GA4 only after opt-in) -->
+  <link rel="stylesheet" href="/css/cookieconsent.css">
+  <link rel="stylesheet" href="/css/consent-theme.css">
+  <script defer src="/js/cookieconsent.umd.js"></script>
+  <script defer src="/js/consent.js"></script>
+</head>
+
+<body>
+
+  <!-- ======== NAV ======== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a class="brand" href="/" aria-label="NearSpotio Home">
+          <div class="logo"><img class="logo-dark" src="/img/in_app_icon_d.png" alt="NearSpotio" /><img class="logo-light" src="/img/in_app_icon_l.png" alt="NearSpotio" /></div>
+          <span class="brand-name" translate="no"><span class="brand-part"><span style="display:inline-block;transform:scaleX(-1) rotate(90deg) scaleX(1.45) translateX(1px);color:var(--n-color);font-weight:700;margin-right:3px">S</span>ear</span><wbr><span class="brand-part"><span style="display:inline-block;transform:scaleX(1.45);color:var(--s-color);font-weight:700;margin-left:2.5px;margin-right:1.5px">S</span>potio</span></span>
+        </a>
+        <a class="back-btn" href="/" id="link-home">&larr; Home</a>
+      </div>
+      <div class="nav-actions">
+        <span class="btn" id="btn-theme" role="button" tabindex="0"><svg class="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"></svg></span>
+        <span class="btn" id="btn-de" role="button" tabindex="0">DE</span>
+        <span class="btn active" id="btn-en" role="button" tabindex="0">EN</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== PAGE HEADER ======== -->
+  <div class="page-header">
+    <div class="page-header-glow"></div>
+    <div class="page-header-inner">
+      <h1 id="page-title">Privacy Policy</h1>
+      <div class="sub" id="sub-text">
+        Last updated: <strong>April 21, 2026</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== PRIVACY CONTENT ======== -->
+  <div class="privacy-wrap">
+    <div class="privacy-inner">
+      <div class="content">
+        <!-- ======================== DEUTSCH ======================== -->
+        <section id="sec-de">
+          <p><span translate="no">NearSpotio</span> (&bdquo;die App&ldquo;) ist eine mobile Anwendung, die Points of Interest (<span translate="no">POI</span>s) entlang von Rad- und
+            Tourenrouten anzeigt. Deine Privatsph&auml;re ist uns wichtig. Diese Erkl&auml;rung beschreibt, welche Daten erhoben
+            werden, wie sie verwendet werden und welche Rechte du hast.</p>
+          <p>Die Abschnitte 1&ndash;13 beziehen sich auf die App, Abschnitt 14 auf diese Webseite (<span translate="no">nearspotio.app</span>).</p>
+
+          <h2>Verantwortlicher</h2>
+          <p id="controller-de" translate="no"></p>
+
+          <h2>1. Daten, die wir nicht erheben</h2>
+          <p>Die App erhebt <strong>keine</strong>:</p>
+          <ul>
+            <li>Registrierung oder Benutzerkonten</li>
+            <li>Namen, E-Mail-Adressen oder andere persönliche Identifikationsmerkmale</li>
+            <li>Automatische Übertragung deines Geräte-Standorts an Server</li>
+            <li><span translate="no">GPX</span>-Routen oder Track-Dateien auf Servern</li>
+            <li>Persönliche Daten zur Weitergabe an Dritte zu Marketingzwecken</li>
+          </ul>
+          <p><strong>Hinweis:</strong> Wenn du über die App aktiv einen fehlenden oder nicht mehr vorhandenen <span translate="no">POI</span> meldest, werden die Koordinaten des betreffenden <span translate="no">POI</span>s (nicht dein Geräte-Standort) zusammen mit der gehashten Geräte-ID an Google Cloud Firestore übermittelt. Diese Übermittlung erfolgt nur nach deiner ausdrücklichen Bestätigung.</p>
+
+          <h2>2. Standortdaten</h2>
+          <p>Die App verwendet den Standort deines Geräts <strong>nur während der Nutzung</strong>, um nahegelegene
+            Points of Interest auf der Karte anzuzeigen. Dein Standort wird lokal auf deinem Gerät verarbeitet und
+            <strong>nicht</strong> an unsere Server übertragen oder extern gespeichert.
+          </p>
+
+          <h2>3. Analyse (Firebase Analytics)</h2>
+          <p>Wir verwenden Google Firebase Analytics zur Erhebung <strong>pseudonymer Nutzungsstatistiken</strong>,
+            wie z.B.:</p>
+          <ul>
+            <li>Welche Funktionen genutzt werden (z.B. Kategorie-Umschaltung, <span translate="no">GPX</span>-Export)</li>
+            <li>Sprachauswahl</li>
+            <li>App-Sitzungen und allgemeine Nutzungsmuster</li>
+          </ul>
+          <p>Diese Daten werden unter einer zufällig generierten Installations-ID erfasst und enthalten
+            <strong>keine</strong> Namen, E-Mail-Adressen oder Kontodaten. Firebase kann dabei technische
+            Gerätekennungen und IP-Adressen verarbeiten, die unter der DSGVO als pseudonyme bzw. personenbezogene
+            Daten gelten. Die Verarbeitung erfolgt durch Google Firebase gemäß der <a
+              href="https://firebase.google.com/support/privacy" target="_blank"
+              rel="noopener">Firebase-Datenschutzrichtlinie</a>.
+          </p>
+          <p>Auf GA4-Seite wird aus der IP-Adresse serverseitig der ungefähre Standort auf Land-/Regionsebene abgeleitet (keine exakte Geolokalisierung). Die IP-Adresse selbst wird von Google gekürzt und nicht gespeichert (IP-Anonymisierung ist standardmäßig aktiv).</p>
+          <p><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Die Einwilligung wird über einen Consent-Dialog (Google Certified Consent Management Platform) eingeholt. Analytics-Daten werden erst nach erteilter Einwilligung erhoben. Du kannst deine Einwilligung jederzeit widerrufen, indem du die App deinstallierst und neu installierst oder uns per E-Mail kontaktierst.</p>
+
+          <h2>4. Absturzberichte (Firebase Crashlytics)</h2>
+          <p>Bei einem App-Absturz wird automatisch ein Absturzbericht an Firebase Crashlytics gesendet. Diese
+            Berichte enthalten:</p>
+          <ul>
+            <li>Gerätetyp und Betriebssystemversion</li>
+            <li>App-Version</li>
+            <li>Stack-Trace (technische Fehlerinformationen)</li>
+          </ul>
+          <p>Absturzberichte enthalten <strong>keine</strong> Namen, Standortdaten oder Routeninformationen. Firebase
+            kann dabei technische Gerätekennungen verarbeiten, die unter der DSGVO als pseudonyme Daten gelten.</p>
+          <p><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Absturzberichte werden erst nach erteilter Einwilligung über den Consent-Dialog gesendet.</p>
+
+          <h2>5. Werbung (Google AdMob)</h2>
+          <p>Die kostenlose Version der App zeigt Werbung von Google AdMob an. AdMob kann folgende Daten erheben:</p>
+          <ul>
+            <li>Werbe-Identifikator (IDFA unter iOS, Advertising ID unter Android)</li>
+            <li>Allgemeine Geräteinformationen</li>
+          </ul>
+          <p>Werbe-IDs gelten unter der DSGVO als <strong>personenbezogene Daten</strong>. In der <strong>Europäischen
+              Union, dem Vereinigten Königreich und der Schweiz</strong> zeigt die App beim ersten Start einen
+            Einwilligungsdialog (Google Certified Consent Management Platform). Du kannst dort wählen, ob du
+            personalisierte Werbung zulässt. Bei Ablehnung werden ausschließlich nicht-personalisierte Anzeigen
+            dargestellt. Unter iOS wird zusätzlich der App-Tracking-Transparenz-Dialog (ATT) angezeigt. Weitere
+            Informationen: <a href="https://policies.google.com/privacy" target="_blank"
+              rel="noopener">Google-Datenschutzerklärung</a>.</p>
+          <p><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) über den Consent-Dialog bzw.
+            ATT-Dialog (iOS). Bei nicht-personalisierter Werbung: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO).
+          </p>
+
+          <h2>6. Lokale Datenspeicherung</h2>
+          <p>Die App speichert folgende Daten <strong>lokal auf deinem Gerät</strong>:</p>
+          <ul>
+            <li>Deine Einstellungen (Design, Sprache, Suchradius etc.)</li>
+            <li><span translate="no">POI</span>-Datenbank (mit der App gebündelt)</li>
+            <li>Importierte <span translate="no">GPX</span>-Dateien (temporär zwischengespeichert)</li>
+          </ul>
+          <p>Die <span translate="no">POI</span>-Datenbank und importierte <span translate="no">GPX</span>-Dateien verlassen dein Gerät nur, wenn du eine Datei bewusst exportierst oder teilst.</p>
+
+          <h2><span translate="no">POI</span>-Daten-Updates</h2>
+          <p>Die App prüft bei jedem Start automatisch, ob aktualisierte <span translate="no">POI</span>-Daten verfügbar sind. Dazu wird eine Verbindung zu <code>raw.githubusercontent.com</code> hergestellt und eine kleine Manifest-Datei heruntergeladen. Sind Updates verfügbar, werden diese bei einer Größe unter 2&nbsp;MB automatisch im Hintergrund heruntergeladen. Bei Updates über 2&nbsp;MB wirst du zuvor um Bestätigung gebeten. Wenn die Offline-Karte als Kartenquelle eingestellt ist, findet keine Update-Prüfung statt.</p>
+
+          <h2>7. Geräteerkennung und Nutzungsanalyse</h2>
+          <p>Für die kostenlose Testphase (12 Tage volle <span translate="no">POI</span>-Sichtbarkeit und 12 kostenlose Pro-Exports) sowie zur
+            pseudonymen Nutzungsanalyse wird eine <strong>gehashte Geräte-ID (SHA-256)</strong> in
+            <strong>Google Cloud Firestore</strong> gespeichert.</p>
+          <p><strong>Gespeicherte Daten:</strong></p>
+          <ul>
+            <li>Gehashte Geräte-ID (nicht direkt einer Person zuordenbar)</li>
+            <li>Plattform (Android/iOS)</li>
+            <li>Betriebssystemversion (z.&nbsp;B. „Android 14", „iOS 17.2")</li>
+            <li>Installationsquelle (z.&nbsp;B. Play Store, App Store)</li>
+            <li>Registrierungszeitpunkt und Ablaufdaten der Testphase</li>
+            <li>Export-Zähler (Trial und gesamt) sowie aktive Kategorien bei Exports</li>
+            <li>Pro-Status und Kaufzeitpunkt (falls zutreffend)</li>
+            <li>Letzter App-Start (Zeitstempel)</li>
+            <li>Anzahl der App-Starts</li>
+            <li>Spracheinstellung</li>
+            <li>App-Version</li>
+            <li>Pseudonyme Nutzungsstatistiken: <span translate="no">POI</span>-Aktionen (z.&nbsp;B. Navigation, Teilen), Anzahl der Routenimporte, Anzahl gemeldeter <span translate="no">POI</span>-Korrekturen</li>
+            <li>App-Einstellungen (z.&nbsp;B. Kartenquelle, Darstellungsmodus, Suchradius)</li>
+            <li>Länder/Regionen der exportierten Route-<span translate="no">POI</span>s (abgeleitet aus den <span translate="no">POI</span>-Daten, nicht aus dem Geräte-Standort)</li>
+            <li>Gerätehersteller und Gerätemodell (z.&nbsp;B. „Samsung", „SM-S928B")</li>
+            <li>Absturzzähler (Anzahl der App-Abstürze)</li>
+            <li>Promo-Code-Versuche (Anzahl der Eingabeversuche), Hash des eingelösten Promo-Codes, Promo-Status (aktiv/inaktiv) und Promo-Ablaufdatum (falls zutreffend)</li>
+          </ul>
+          <p>Wenn du einen Promo-Code einlöst, wird deine gehashte Geräte-ID zusammen mit dem Einlösungszeitpunkt im entsprechenden Code-Eintrag in Google Cloud Firestore gespeichert, um eine Mehrfachnutzung zu verhindern.</p>
+          <p>Es werden <strong>keine</strong> personenbezogenen Daten (Namen, E-Mail-Adressen, Routen) gespeichert. Dein Geräte-Standort wird nicht an Server übermittelt. Die Länder-/Regionsdaten stammen ausschließlich aus den <span translate="no">POI</span>-Daten der exportierten Route.</p>
+          <p>Diese Daten dienen ausschließlich der Produktverbesserung, der Sicherheit der App-Nutzung und dem Schutz vor Missbrauch der kostenlosen Testphase. Sie werden nicht für Werbezwecke oder zur Erstellung personenbezogener Profile verwendet.</p>
+          <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Vermeidung
+            von Missbrauch der kostenlosen Testphase sowie an der Verbesserung der App).</p>
+          <p><strong>Speicherdauer:</strong> Die Daten werden dauerhaft gespeichert. Auf Anfrage per E-Mail
+            können sie gelöscht werden.</p>
+          <p>Wenn du deine Nutzungsdaten über die App löschst, werden ab diesem Zeitpunkt nur noch die für die Testphasen-Verwaltung notwendigen Daten gespeichert (Zeitpunkt des letzten App-Starts, App-Version, Anzahl der App-Starts). Alle weiteren Nutzungsstatistiken (z. B. <span translate="no">POI</span>-Aktionen, Export-Zähler, Einstellungen, Regionen) werden nicht mehr erhoben.</p>
+
+          <h2>8. Drittanbieter-Dienste</h2>
+          <p>Die App verwendet folgende Drittanbieter-Dienste:</p>
+          <ul>
+            <li><strong>Google Firebase Analytics</strong> (Nutzungsstatistiken) – Betreiber: Google Ireland Limited –
+              <a href="https://firebase.google.com/support/privacy" target="_blank"
+                rel="noopener">Datenschutzrichtlinie</a>
+            </li>
+            <li><strong>Google Firebase Crashlytics</strong> (Absturzberichte) – Betreiber: Google Ireland Limited –
+              <a href="https://firebase.google.com/support/privacy" target="_blank"
+                rel="noopener">Datenschutzrichtlinie</a>
+            </li>
+            <li><strong>Google AdMob</strong> (Werbung) – Betreiber: Google Ireland Limited – <a
+                href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzrichtlinie</a>
+            </li>
+            <li><strong>Google Cloud Firestore</strong> (Geräteerkennung und Nutzungsanalyse) – Betreiber: Google Ireland Limited –
+              <a href="https://firebase.google.com/support/privacy" target="_blank"
+                rel="noopener">Datenschutzrichtlinie</a>
+            </li>
+            <li><strong>OpenFreeMap / MapTiler / OpenStreetMap</strong> (Kartendarstellung) – Kartenkacheln werden von externen
+              Servern geladen; dabei wird der ungefähre sichtbare Kartenausschnitt als Teil der Standard-Tile-Anfragen
+              übertragen. Je nach gewählter Kartenquelle werden Anfragen an OpenFreeMap, MapTiler AG (Schweiz) oder OpenStreetMap-Server gesendet.</li>
+            <li><strong>OpenStreetMap Nominatim</strong> (Geocoding) – Beim Öffnen geteilter Karten-Links kann eine Adressauflösung über <code>nominatim.openstreetmap.org</code> erfolgen. Dabei wird die Suchanfrage und deine IP-Adresse übertragen. Betreiber: OpenStreetMap Foundation – <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">Datenschutzrichtlinie</a></li>
+            <li><strong>GitHub</strong> (<span translate="no">POI</span>-Daten-Updates) – Die App lädt regelmäßig <span translate="no">POI</span>-Updates von <code>raw.githubusercontent.com</code> herunter. Dabei wird deine IP-Adresse übertragen. Betreiber: GitHub, Inc. (Microsoft) – <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzrichtlinie</a></li>
+          </ul>
+
+          <h2>9. Auftragsverarbeitung &amp; Internationale Datenübermittlung</h2>
+          <p>Auftragsverarbeiter für die Firebase- und AdMob-Dienste ist die <strong>Google Ireland Limited</strong>,
+            Gordon House, Barrow Street, Dublin 4, Irland.</p>
+          <p>Google kann diese Daten auf Servern in den <strong>USA</strong> verarbeiten. Die Datenübermittlung in die
+            USA erfolgt auf Grundlage von:</p>
+          <ul>
+            <li>dem <strong>EU-US Data Privacy Framework</strong> (Angemessenheitsbeschluss der EU-Kommission vom 10.
+              Juli 2023), sowie</li>
+            <li><strong>Standardvertragsklauseln (SCCs)</strong> gemäß Art. 46 Abs. 2 lit. c DSGVO als ergänzende
+              Schutzmaßnahme.</li>
+          </ul>
+          <p>Die konkret genutzten Dienste und die jeweils verarbeiteten Daten:</p>
+          <ul>
+            <li><strong>Firebase Analytics</strong> – Pseudonyme Nutzungsstatistiken (Funktionsnutzung, Sitzungsdaten,
+              Gerätekennungen)</li>
+            <li><strong>Firebase Crashlytics</strong> – Automatische Absturzberichte (Geräteinformationen,
+              Stack-Traces)</li>
+            <li><strong>Google AdMob</strong> – Werbe-Identifikatoren (IDFA / Advertising ID), allgemeine
+              Geräteinformationen</li>
+            <li><strong>Google Cloud Firestore</strong> – Gehashte Geräte-ID, Plattform, OS-Version, Gerätehersteller, Gerätemodell, Installationsquelle, Ablaufdaten, Export-Zähler,
+              Kategorie-Nutzung, <span translate="no">POI</span>-Aktionen, App-Einstellungen, Regionen der Route-<span translate="no">POI</span>s, <span translate="no">POI</span>-Korrekturmeldungen, Absturzzähler, Promo-Code-Versuche, eingelöster Code-Hash, Promo-Status und Promo-Ablaufdatum (Trial-System, Promo-System und Nutzungsanalyse)</li>
+          </ul>
+
+          <div class="note">
+            Weiterführende Links:<br />
+            <a href="https://policies.google.com/privacy" target="_blank"
+              rel="noopener">Google-Datenschutzerklärung</a> &middot;
+            <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase
+              Datenschutz</a> &middot;
+            <a href="https://www.dataprivacyframework.gov/" target="_blank" rel="noopener">EU-US Data Privacy
+              Framework</a> &middot;
+            <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob</a>
+          </div>
+
+          <h2>10. Speicherdauer</h2>
+          <ul>
+            <li><strong>Firebase Analytics:</strong> Nutzungsdaten werden 14 Monate
+              aufbewahrt, danach automatisch gelöscht.</li>
+            <li><strong>Firebase Crashlytics:</strong> Absturzberichte werden 90 Tage aufbewahrt.</li>
+            <li><strong>AdMob:</strong> Werbe-Interaktionsdaten unterliegen den Aufbewahrungsfristen von Google (siehe
+              <a href="https://policies.google.com/technologies/retention" target="_blank"
+                rel="noopener">Google-Aufbewahrungsrichtlinie</a>).
+            </li>
+            <li><strong>Lokale Daten:</strong> Werden mit der Deinstallation der App gelöscht.</li>
+            <li><strong>Trial-Daten (Cloud Firestore):</strong> Dauerhaft gespeichert. Löschung auf Anfrage per
+              E-Mail.</li>
+          </ul>
+
+          <h2>11. Deine Rechte (DSGVO)</h2>
+          <p>Du hast gegenüber dem Verantwortlichen folgende Rechte bezüglich deiner personenbezogenen Daten:</p>
+          <ul>
+            <li><strong>Auskunft</strong> (Art. 15 DSGVO) – Recht auf Information, welche Daten über dich verarbeitet
+              werden</li>
+            <li><strong>Berichtigung</strong> (Art. 16 DSGVO) – Recht auf Korrektur unrichtiger Daten</li>
+            <li><strong>Löschung</strong> (Art. 17 DSGVO) – Recht auf Löschung deiner Daten (siehe auch unsere <a
+                href="/data-deletion/">Seite zur Datenlöschung</a>)</li>
+            <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+            <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO) – soweit technisch anwendbar</li>
+            <li><strong>Widerspruch</strong> (Art. 21 DSGVO) – insbesondere gegen Verarbeitung auf Basis berechtigter
+              Interessen</li>
+            <li><strong>Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO) – jederzeit mit Wirkung für die
+              Zukunft (z.B. Tracking über iOS-ATT oder Geräteeinstellungen)</li>
+          </ul>
+          <p><strong>Praktische Maßnahmen:</strong></p>
+          <ul>
+            <li>Tracking über den iOS-ATT-Dialog oder die Android-Werbeeinstellungen ablehnen bzw. widerrufen</li>
+            <li>Werbe-ID in den Geräteeinstellungen zurücksetzen</li>
+            <li>Lokal gespeicherte App-Daten durch Deinstallation der App löschen</li>
+            <li>Nutzungsdaten direkt in der App über Einstellungen &rarr; Meine Daten löschen entfernen. Zur Verhinderung von Missbrauch der Testphase wird die pseudonyme Gerätekennung sowie der Testphasen-Status auch nach Löschung beibehalten.</li>
+          </ul>
+
+          <h2>12. Aufsichtsbehörde</h2>
+          <p>Du hast das Recht, eine Beschwerde bei einer Datenschutz-Aufsichtsbehörde einzureichen. Die für uns
+            zuständige Behörde ist:</p>
+          <p><strong>Österreichische Datenschutzbehörde</strong><br>
+            Barichgasse 40–42, 1030 Wien<br>
+            <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a>
+          </p>
+          <p>Du kannst dich auch an die Aufsichtsbehörde deines Wohnsitzlandes wenden.</p>
+
+          <h2>13. Hinweise für Nutzer in den USA (CCPA/CPRA)</h2>
+          <p>Wenn du in Kalifornien oder einem anderen US-Bundesstaat mit vergleichbaren Datenschutzgesetzen ansässig bist, hast du folgende zusätzliche Rechte:</p>
+          <ul>
+            <li><strong>Recht auf Auskunft:</strong> Du kannst erfahren, welche Kategorien personenbezogener Daten wir erheben und zu welchem Zweck.</li>
+            <li><strong>Recht auf Löschung:</strong> Du kannst die Löschung deiner personenbezogenen Daten beantragen (siehe unsere <a href="/data-deletion/">Seite zur Datenlöschung</a>).</li>
+            <li><strong>Recht auf Opt-Out:</strong> Du hast das Recht, dem „Verkauf" oder der „Weitergabe" deiner personenbezogenen Daten zu widersprechen.</li>
+          </ul>
+          <p><strong>Verkaufen oder teilen wir deine Daten?</strong> <span translate="no">NearSpotio</span> verkauft deine personenbezogenen Daten nicht. Die kostenlose Version der App zeigt jedoch Werbung über <strong>Google AdMob</strong>, wobei Werbe-Identifikatoren an Google übermittelt werden. Dies kann unter dem CCPA als „Weitergabe" (Sharing) gelten. Du kannst personalisierte Werbung jederzeit über die Geräteeinstellungen deaktivieren oder im Consent-Dialog ablehnen.</p>
+          <p>Wir diskriminieren dich nicht aufgrund der Ausübung deiner Datenschutzrechte.</p>
+
+          <h2>14. Webseite (<span translate="no">nearspotio.app</span>)</h2>
+          <p>Die Abschnitte 1–13 betreffen die mobile App. Dieser Abschnitt beschreibt die Datenverarbeitung auf unserer Webseite <span translate="no">www.nearspotio.app</span>.</p>
+
+          <h3 style="margin-top:18px">14.1 Hosting</h3>
+          <p>Die Webseite wird als statische Seite über <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) mit einem vorgelagerten <strong>Cloudflare</strong>-CDN/Proxy (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA) ausgeliefert. Bei jedem Aufruf werden aus technischen Gründen <strong>Server-Logdaten</strong> (IP-Adresse, Datum/Uhrzeit, aufgerufene URL, User-Agent, Referrer) kurzzeitig verarbeitet, um die Auslieferung sicherzustellen und Missbrauch abzuwehren.</p>
+          <p><strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) an einem stabilen, sicheren Betrieb der Webseite.</p>
+          <p><strong>Drittlandtransfer:</strong> Übermittlung in die USA auf Basis des <strong>EU-US Data Privacy Framework</strong> (Angemessenheitsbeschluss der EU-Kommission vom 10.07.2023); GitHub und Cloudflare sind zertifiziert.</p>
+
+          <h3 style="margin-top:18px">14.2 Cookies &amp; lokaler Speicher</h3>
+          <p>Die Webseite verwendet nur <strong>technisch notwendige</strong> Speicherung:</p>
+          <ul>
+            <li><code>nearspotio-theme</code> (<em>localStorage</em>) – speichert deine Theme-Auswahl (hell/dunkel).</li>
+            <li><code>nearspotio-lang</code> (<em>localStorage</em>) – speichert deine Sprach-Auswahl (DE/EN).</li>
+            <li><code>cc_cookie</code> (<em>First-Party-Cookie</em>) – speichert deine Cookie-Einwilligung für 6 Monate.</li>
+          </ul>
+          <p><strong>Rechtsgrundlage:</strong> § 165 Abs. 3 TKG (AT) bzw. § 25 Abs. 2 DDG (DE) – unbedingt erforderlich; Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
+
+          <h3 style="margin-top:18px">14.3 Webanalyse (Google Analytics 4)</h3>
+          <p>Nach deiner <strong>ausdrücklichen Einwilligung</strong> über unseren Cookie-Dialog setzen wir <strong>Google Analytics 4</strong> ein (Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Zweck: pseudonyme Reichweitenmessung, um die Webseite zu verbessern.</p>
+          <p>Erhoben werden u. a.:</p>
+          <ul>
+            <li>besuchte Seiten, Verweildauer, Klickpfade innerhalb der Webseite</li>
+            <li>Sitzungsdauer, Einstiegs- und Ausstiegsseiten</li>
+            <li>Geräte- und Browsertyp, Bildschirmauflösung, Spracheinstellung</li>
+            <li>ungefährer Standort auf <strong>Land-/Regionsebene</strong> (keine exakte Geolokalisierung)</li>
+            <li>pseudonyme Client-ID (Cookie <code>_ga</code>, <code>_ga_*</code>)</li>
+          </ul>
+          <p><strong>Datenschutzfreundliche Konfiguration:</strong></p>
+          <ul>
+            <li><strong>IP-Anonymisierung</strong> ist aktiv (IPv4 wird in GA4 standardmäßig gekürzt und nicht gespeichert).</li>
+            <li><strong>Google Signals</strong> ist <strong>deaktiviert</strong> (kein geräteübergreifendes Tracking, kein Zusammenführen mit Google-Konten).</li>
+            <li><strong>Werbefunktionen und Personalisierung</strong> sind <strong>deaktiviert</strong> (<code>allow_ad_personalization_signals=false</code>).</li>
+            <li><strong>Google Consent Mode v2</strong>: ohne Einwilligung wird <strong>kein</strong> Google-Analytics-Script geladen und <strong>kein</strong> Cookie gesetzt.</li>
+            <li><strong>Aufbewahrungsdauer</strong>: 2 Monate.</li>
+          </ul>
+          <p><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 165 Abs. 3 TKG AT / § 25 Abs. 1 DDG DE). Die Einwilligung ist freiwillig und jederzeit mit Wirkung für die Zukunft widerrufbar.</p>
+          <p><strong>Drittlandtransfer:</strong> Übermittlung an Google LLC in die USA auf Basis des <strong>EU-US Data Privacy Framework</strong>; Google ist zertifiziert. Zusätzlich bestehen Standardvertragsklauseln gem. Art. 46 Abs. 2 lit. c DSGVO.</p>
+          <p><strong>Auftragsverarbeitungsvertrag:</strong> Mit Google Ireland besteht ein Vertrag gem. Art. 28 DSGVO (Google Ads Data Processing Terms).</p>
+
+          <h3 style="margin-top:18px">14.4 Einwilligung widerrufen</h3>
+          <p>Du kannst deine Cookie-Einwilligung jederzeit widerrufen, indem du unten im Seitenfuß auf „<strong>Cookie-Einstellungen</strong>" klickst und die Auswahl anpasst. Bereits gesetzte Analytics-Cookies werden dabei gelöscht. Zusätzlich kannst du das <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Browser-Add-on</a> installieren oder den <strong>Global Privacy Control (GPC)</strong>-Header in deinem Browser aktivieren, den wir respektieren.</p>
+
+          <h3 style="margin-top:18px">14.5 Externe Ressourcen</h3>
+          <p>Die Webseite lädt <strong>keine</strong> Google Fonts, keine externen Icon-Bibliotheken und keine Social-Media-Plugins. Alle Schriften und Icons werden von unserer eigenen Domain ausgeliefert.</p>
+
+          <h2>15. Kontakt</h2>
+          <p>Bei Fragen zu dieser Datenschutzerklärung kontaktiere uns unter:<br>
+            <a class="eml" data-u="privacy" data-d="nearspotio.app"></a>
+          </p>
+        </section>
+
+        <!-- ======================== ENGLISH ======================== -->
+        <section id="sec-en" class="active">
+          <p><span translate="no">NearSpotio</span> ("the App") is a mobile application that displays points of interest (<span translate="no">POI</span>s) along cycling and
+            touring routes. Your privacy is important to us. This policy explains what data is collected, how it is
+            used, and your rights.</p>
+          <p>Sections 1&ndash;13 apply to the App; section 14 applies to this website (<span translate="no">nearspotio.app</span>).</p>
+
+          <h2>Data Controller</h2>
+          <p id="controller-en" translate="no"></p>
+
+          <h2>1. Data We Do Not Collect</h2>
+          <p>The App does <strong>not</strong>:</p>
+          <ul>
+            <li>Require registration or user accounts</li>
+            <li>Collect your name, email address, or other personal identifiers</li>
+            <li>Automatically transmit your device location to servers</li>
+            <li>Upload your <span translate="no">GPX</span> routes or track files</li>
+            <li>Share personal data with third parties for marketing</li>
+          </ul>
+          <p><strong>Note:</strong> If you actively report a missing or no-longer-existing <span translate="no">POI</span> via the App, the coordinates of the <span translate="no">POI</span> in question (not your device location) are transmitted to Google Cloud Firestore along with your hashed device ID. This transmission only occurs after your explicit confirmation.</p>
+
+          <h2>2. Location Data</h2>
+          <p>The App uses your device's location <strong>only while the App is in use</strong> to display nearby
+            points of interest on the map. Your location is processed locally on your device and is
+            <strong>not</strong> transmitted to our servers or stored externally.
+          </p>
+
+          <h2>3. Analytics (Firebase Analytics)</h2>
+          <p>We use Google Firebase Analytics to collect <strong>pseudonymous usage statistics</strong>, such as:</p>
+          <ul>
+            <li>Which features are used (e.g. category toggles, <span translate="no">GPX</span> export)</li>
+            <li>Language selection</li>
+            <li>App sessions and general usage patterns</li>
+          </ul>
+          <p>This data is collected under a randomly generated installation ID and does <strong>not</strong> include
+            names, email addresses, or account data. Firebase may process technical device identifiers and IP
+            addresses, which are considered pseudonymous or personal data under the GDPR. Data is processed by Google
+            Firebase under the <a href="https://firebase.google.com/support/privacy" target="_blank"
+              rel="noopener">Firebase Privacy Policy</a>.</p>
+          <p>On the GA4 side, the IP address is used server-side to derive approximate location at country/region level (no precise geolocation). The IP address itself is truncated by Google and not stored (IP anonymization is enabled by default).</p>
+          <p><strong>Legal basis:</strong> Consent (Art. 6(1)(a) GDPR). Consent is obtained via a consent dialog (Google Certified Consent Management Platform). Analytics data is only collected after consent has been granted. You can withdraw your consent at any time by reinstalling the app or contacting us by email.</p>
+
+          <h2>4. Crash Reports (Firebase Crashlytics)</h2>
+          <p>In the event of an App crash, an automatic crash report is sent to Firebase Crashlytics. These reports
+            contain:</p>
+          <ul>
+            <li>Device type and operating system version</li>
+            <li>App version</li>
+            <li>Stack trace (technical error information)</li>
+          </ul>
+          <p>Crash reports do <strong>not</strong> contain names, location data, or route information. Firebase may
+            process technical device identifiers, which are considered pseudonymous data under the GDPR.</p>
+          <p><strong>Legal basis:</strong> Consent (Art. 6(1)(a) GDPR). Crash reports are only sent after consent has been granted via the consent dialog.</p>
+
+          <h2>5. Advertising (Google AdMob)</h2>
+          <p>The free version of the App displays ads provided by Google AdMob. AdMob may collect:</p>
+          <ul>
+            <li>Advertising identifier (IDFA on iOS, Advertising ID on Android)</li>
+            <li>General device information</li>
+          </ul>
+          <p>Advertising IDs are considered <strong>personal data</strong> under the GDPR. In the <strong>European
+              Union, the United Kingdom, and Switzerland</strong>, the App displays a consent dialog (Google Certified
+            Consent Management Platform) on first launch. You can choose whether to allow personalized advertising. If
+            declined, only non-personalized ads are shown. On iOS, the App Tracking Transparency (ATT) dialog is shown
+            additionally. More information: <a href="https://policies.google.com/privacy" target="_blank"
+              rel="noopener">Google Privacy Policy</a>.</p>
+          <p><strong>Legal basis:</strong> Consent (Art. 6(1)(a) GDPR) via the consent dialog or ATT dialog (iOS). For
+            non-personalized ads: legitimate interest (Art. 6(1)(f) GDPR).</p>
+
+          <h2>6. Local Data Storage</h2>
+          <p>The App stores the following data <strong>locally on your device</strong>:</p>
+          <ul>
+            <li>Your preferences (theme, language, search radius, etc.)</li>
+            <li><span translate="no">POI</span> database (bundled with the App)</li>
+            <li>Imported <span translate="no">GPX</span> files (temporarily cached)</li>
+          </ul>
+          <p>The <span translate="no">POI</span> database and imported <span translate="no">GPX</span> files never leave your device unless you explicitly choose to export or share a file.</p>
+
+          <h2><span translate="no">POI</span> Data Updates</h2>
+          <p>The App automatically checks for updated <span translate="no">POI</span> data on every launch. To do so, it connects to <code>raw.githubusercontent.com</code> and downloads a small manifest file. If updates are available and smaller than 2&nbsp;MB, they are downloaded automatically in the background. For updates larger than 2&nbsp;MB, you will be asked for confirmation first. When the offline map is selected as the map source, no update check takes place.</p>
+
+          <h2>7. Device Identification and Usage Analysis</h2>
+          <p>For the free trial period (12 days of full <span translate="no">POI</span> visibility and 12 free pro exports) and for
+            pseudonymous usage analysis, a <strong>hashed device ID (SHA-256)</strong> is stored in
+            <strong>Google Cloud Firestore</strong>.</p>
+          <p><strong>Stored data:</strong></p>
+          <ul>
+            <li>Hashed device ID (not directly attributable to a person)</li>
+            <li>Platform (Android/iOS)</li>
+            <li>Operating system version (e.g. "Android 14", "iOS 17.2")</li>
+            <li>Install source (e.g. Play Store, App Store)</li>
+            <li>Registration timestamp and trial expiry dates</li>
+            <li>Export counter (trial and total) and active categories per export</li>
+            <li>Pro status and purchase timestamp (if applicable)</li>
+            <li>Last app launch (timestamp)</li>
+            <li>Number of app launches</li>
+            <li>Language setting</li>
+            <li>App version</li>
+            <li>Pseudonymous usage statistics: <span translate="no">POI</span> actions (e.g. navigation, sharing), number of route imports, number of submitted <span translate="no">POI</span> corrections</li>
+            <li>App settings (e.g. map source, display mode, search radius)</li>
+            <li>Countries/regions of exported route <span translate="no">POI</span>s (derived from <span translate="no">POI</span> data, not from device location)</li>
+            <li>Device manufacturer and device model (e.g. "Samsung", "SM-S928B")</li>
+            <li>Crash counter (number of app crashes)</li>
+            <li>Promo code attempts (number of input attempts), hash of the redeemed promo code, promo status (active/inactive) and promo expiration date (if applicable)</li>
+          </ul>
+          <p>When you redeem a promo code, your hashed device ID and the redemption timestamp are stored in the corresponding code entry in Google Cloud Firestore to prevent multiple use.</p>
+          <p><strong>No</strong> personal data (names, email addresses, routes) is stored. Your device location is not transmitted to servers. Country/region data is derived solely from the <span translate="no">POI</span> data of the exported route.</p>
+          <p>This data is used exclusively for product improvement, user safety, and prevention of trial abuse. It is not used for advertising purposes or to create personal profiles.</p>
+          <p><strong>Legal basis:</strong> Legitimate interest (Art. 6(1)(f) GDPR) in preventing abuse of the free
+            trial period and improving the app.</p>
+          <p><strong>Retention:</strong> The data is stored permanently. It can be deleted upon request via email.
+          </p>
+          <p>If you delete your usage data via the app, only the data necessary for trial management will be stored from that point on (last app launch timestamp, app version, number of app launches). All other usage statistics (e.g. <span translate="no">POI</span> actions, export counters, settings, regions) will no longer be collected.</p>
+
+          <h2>8. Third-Party Services</h2>
+          <p>The App uses the following third-party services:</p>
+          <ul>
+            <li><strong>Google Firebase Analytics</strong> (Usage statistics) – Operator: Google Ireland Limited – <a
+                href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+            </li>
+            <li><strong>Google Firebase Crashlytics</strong> (Crash reports) – Operator: Google Ireland Limited – <a
+                href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+            </li>
+            <li><strong>Google AdMob</strong> (Advertising) – Operator: Google Ireland Limited – <a
+                href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><strong>Google Cloud Firestore</strong> (Device identification and usage analysis) – Operator: Google Ireland
+              Limited – <a href="https://firebase.google.com/support/privacy" target="_blank"
+                rel="noopener">Privacy Policy</a></li>
+            <li><strong>OpenFreeMap / MapTiler / OpenStreetMap</strong> (Map display) – Map tiles are loaded from external servers;
+              your approximate map viewport area is transmitted as part of standard tile requests. Depending on the selected map source, requests are sent to OpenFreeMap, MapTiler AG (Switzerland), or OpenStreetMap servers.</li>
+            <li><strong>OpenStreetMap Nominatim</strong> (Geocoding) – When opening shared map links, address resolution may be performed via <code>nominatim.openstreetmap.org</code>. Your search query and IP address are transmitted. Operator: OpenStreetMap Foundation – <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><strong>GitHub</strong> (<span translate="no">POI</span> data updates) – The App periodically downloads <span translate="no">POI</span> updates from <code>raw.githubusercontent.com</code>. Your IP address is transmitted. Operator: GitHub, Inc. (Microsoft) – <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Privacy Policy</a></li>
+          </ul>
+
+          <h2>9. Data Processing &amp; International Data Transfers</h2>
+          <p>The data processor for the Firebase and AdMob services is <strong>Google Ireland Limited</strong>, Gordon
+            House, Barrow Street, Dublin 4, Ireland.</p>
+          <p>Google may process this data on servers in the <strong>United States</strong>. Data transfers to the USA
+            are based on:</p>
+          <ul>
+            <li>the <strong>EU-US Data Privacy Framework</strong> (EU Commission adequacy decision of July 10, 2023),
+              and</li>
+            <li><strong>Standard Contractual Clauses (SCCs)</strong> pursuant to Art. 46(2)(c) GDPR as a supplementary
+              safeguard.</li>
+          </ul>
+          <p>The specific services used and the data they process:</p>
+          <ul>
+            <li><strong>Firebase Analytics</strong> – Pseudonymous usage statistics (feature usage, session data,
+              device identifiers)</li>
+            <li><strong>Firebase Crashlytics</strong> – Automatic crash reports (device information, stack traces)
+            </li>
+            <li><strong>Google AdMob</strong> – Advertising identifiers (IDFA / Advertising ID), general device
+              information</li>
+            <li><strong>Google Cloud Firestore</strong> – Hashed device ID, platform, OS version, device manufacturer, device model, install source, expiry dates, export counter,
+              category usage, <span translate="no">POI</span> actions, app settings, regions of route <span translate="no">POI</span>s, <span translate="no">POI</span> correction reports, crash counter, promo code attempts, redeemed code hash, promo status and promo expiration date (trial system, promo system and usage analysis)</li>
+          </ul>
+
+          <div class="note">
+            Further information:<br />
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> &middot;
+            <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a>
+            &middot;
+            <a href="https://www.dataprivacyframework.gov/" target="_blank" rel="noopener">EU-US Data Privacy
+              Framework</a> &middot;
+            <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob</a>
+          </div>
+
+          <h2>10. Data Retention</h2>
+          <ul>
+            <li><strong>Firebase Analytics:</strong> Usage data is retained for 14 months, then
+              automatically deleted.</li>
+            <li><strong>Firebase Crashlytics:</strong> Crash reports are retained for 90 days.</li>
+            <li><strong>AdMob:</strong> Advertising interaction data is subject to Google's retention policies (see <a
+                href="https://policies.google.com/technologies/retention" target="_blank" rel="noopener">Google
+                Retention Policy</a>).</li>
+            <li><strong>Local data:</strong> Deleted when you uninstall the App.</li>
+            <li><strong>Trial data (Cloud Firestore):</strong> Stored permanently. Can be deleted upon request via
+              email.</li>
+          </ul>
+
+          <h2>11. Your Rights (GDPR)</h2>
+          <p>You have the following rights regarding your personal data:</p>
+          <ul>
+            <li><strong>Access</strong> (Art. 15 GDPR) – Right to information about what data is processed about you
+            </li>
+            <li><strong>Rectification</strong> (Art. 16 GDPR) – Right to correct inaccurate data</li>
+            <li><strong>Erasure</strong> (Art. 17 GDPR) – Right to deletion of your data (see also our <a
+                href="/data-deletion/">Data Deletion page</a>)</li>
+            <li><strong>Restriction of processing</strong> (Art. 18 GDPR)</li>
+            <li><strong>Data portability</strong> (Art. 20 GDPR) – where technically applicable</li>
+            <li><strong>Objection</strong> (Art. 21 GDPR) – in particular against processing based on legitimate
+              interests</li>
+            <li><strong>Withdrawal of consent</strong> (Art. 7(3) GDPR) – at any time with effect for the future (e.g.
+              tracking via iOS ATT or device settings)</li>
+          </ul>
+          <p><strong>Practical measures:</strong></p>
+          <ul>
+            <li>Deny or revoke tracking via the iOS ATT dialog or Android advertising settings</li>
+            <li>Reset your advertising identifier in your device settings</li>
+            <li>Delete locally stored App data by uninstalling the App</li>
+            <li>Delete usage data directly in the app via Settings &rarr; Delete my data. To prevent abuse of the trial period, the pseudonymous device identifier and trial status are retained even after deletion.</li>
+          </ul>
+
+          <h2>12. Supervisory Authority</h2>
+          <p>You have the right to lodge a complaint with a data protection supervisory authority. The authority
+            responsible for us is:</p>
+          <p><strong>Austrian Data Protection Authority</strong> (Österreichische Datenschutzbehörde)<br>
+            Barichgasse 40–42, 1030 Vienna, Austria<br>
+            <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a>
+          </p>
+          <p>You may also contact the supervisory authority in your country of residence.</p>
+
+          <h2>13. Notice for Users in the United States (CCPA/CPRA)</h2>
+          <p>If you reside in California or another US state with comparable privacy laws, you have the following additional rights:</p>
+          <ul>
+            <li><strong>Right to know:</strong> You can request information about what categories of personal data we collect and for what purpose.</li>
+            <li><strong>Right to delete:</strong> You can request the deletion of your personal data (see our <a href="/data-deletion/">Data Deletion page</a>).</li>
+            <li><strong>Right to opt out:</strong> You have the right to opt out of the "sale" or "sharing" of your personal data.</li>
+          </ul>
+          <p><strong>Do we sell or share your data?</strong> <span translate="no">NearSpotio</span> does not sell your personal data. However, the free version of the App displays advertising via <strong>Google AdMob</strong>, which involves transmitting advertising identifiers to Google. This may qualify as "sharing" under the CCPA. You can disable personalized advertising at any time via your device settings or by declining in the consent dialog.</p>
+          <p>We do not discriminate against you for exercising your privacy rights.</p>
+
+          <h2>14. Website (<span translate="no">nearspotio.app</span>)</h2>
+          <p>Sections 1–13 apply to the mobile App. This section describes the data processing on our website <span translate="no">www.nearspotio.app</span>.</p>
+
+          <h3 style="margin-top:18px">14.1 Hosting</h3>
+          <p>The website is served as a static site via <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) with a <strong>Cloudflare</strong> CDN/proxy in front (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA). For every request, <strong>server log data</strong> (IP address, date/time, requested URL, user agent, referrer) is briefly processed to deliver the site and prevent abuse.</p>
+          <p><strong>Legal basis:</strong> Legitimate interest (Art. 6(1)(f) GDPR) in stable and secure operation of the website.</p>
+          <p><strong>International transfer:</strong> Data is transferred to the USA on the basis of the <strong>EU-US Data Privacy Framework</strong> (European Commission adequacy decision of 10 July 2023); GitHub and Cloudflare are certified.</p>
+
+          <h3 style="margin-top:18px">14.2 Cookies &amp; local storage</h3>
+          <p>The website uses only <strong>strictly necessary</strong> storage:</p>
+          <ul>
+            <li><code>nearspotio-theme</code> (<em>localStorage</em>) – stores your theme preference (light/dark).</li>
+            <li><code>nearspotio-lang</code> (<em>localStorage</em>) – stores your language preference (DE/EN).</li>
+            <li><code>cc_cookie</code> (<em>first-party cookie</em>) – stores your cookie consent for 6 months.</li>
+          </ul>
+          <p><strong>Legal basis:</strong> § 165(3) TKG (Austria) / § 25(2) DDG (Germany) – strictly necessary; Art. 6(1)(f) GDPR (legitimate interest).</p>
+
+          <h3 style="margin-top:18px">14.3 Web analytics (Google Analytics 4)</h3>
+          <p>Subject to your <strong>explicit consent</strong> via our cookie dialog, we use <strong>Google Analytics 4</strong> (provider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland). Purpose: pseudonymous reach measurement to improve the website.</p>
+          <p>Data collected includes:</p>
+          <ul>
+            <li>pages visited, time on site, click paths within the website</li>
+            <li>session duration, landing and exit pages</li>
+            <li>device and browser type, screen resolution, language</li>
+            <li>approximate location at <strong>country/region level</strong> (no precise geolocation)</li>
+            <li>pseudonymous client ID (cookies <code>_ga</code>, <code>_ga_*</code>)</li>
+          </ul>
+          <p><strong>Privacy-friendly configuration:</strong></p>
+          <ul>
+            <li><strong>IP anonymisation</strong> is enabled (IPv4 is truncated by default in GA4 and not stored).</li>
+            <li><strong>Google Signals</strong> is <strong>disabled</strong> (no cross-device tracking, no linking with Google accounts).</li>
+            <li><strong>Ad features and personalisation</strong> are <strong>disabled</strong> (<code>allow_ad_personalization_signals=false</code>).</li>
+            <li><strong>Google Consent Mode v2</strong>: without consent, <strong>no</strong> Google Analytics script is loaded and <strong>no</strong> cookies are set.</li>
+            <li><strong>Retention period</strong>: 2 months.</li>
+          </ul>
+          <p><strong>Legal basis:</strong> Consent (Art. 6(1)(a) GDPR, § 165(3) TKG Austria / § 25(1) DDG Germany). Consent is voluntary and can be withdrawn at any time with effect for the future.</p>
+          <p><strong>International transfer:</strong> Data is transferred to Google LLC in the USA on the basis of the <strong>EU-US Data Privacy Framework</strong>; Google is certified. Standard Contractual Clauses under Art. 46(2)(c) GDPR apply additionally.</p>
+          <p><strong>Data processing agreement:</strong> A DPA under Art. 28 GDPR is in place with Google Ireland (Google Ads Data Processing Terms).</p>
+
+          <h3 style="margin-top:18px">14.4 Withdrawing consent</h3>
+          <p>You can withdraw your cookie consent at any time by clicking "<strong>Cookie settings</strong>" in the footer and adjusting your choice. Analytics cookies that were already set will be deleted. You can also install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics browser add-on</a> or enable the <strong>Global Privacy Control (GPC)</strong> signal in your browser, which we honour.</p>
+
+          <h3 style="margin-top:18px">14.5 External resources</h3>
+          <p>The website does <strong>not</strong> load Google Fonts, third-party icon libraries, or social-media plugins. All fonts and icons are served from our own domain.</p>
+
+          <h2>15. Contact</h2>
+          <p>If you have questions about this privacy policy, please contact us at:<br>
+            <a class="eml" data-u="privacy" data-d="nearspotio.app"></a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <div class="footer-wrap">
+    <div class="footer">
+      <div>&copy; <span id="year"></span> <span translate="no">nearspotio</span></div>
+      <div>
+        <a href="/" id="foot-home">Home</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="/terms/" id="foot-terms">Terms</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="/impressum/" id="foot-impressum">Legal Notice</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="/data-deletion/" id="foot-deletion">Data Deletion</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="#" data-cc="show-preferencesModal" id="foot-cookies">Cookie settings</a>
+        <span style="opacity:.45">&bull;</span>
+        <span><a class="eml" data-u="privacy" data-d="nearspotio.app"></a></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const btnDe = document.getElementById("btn-de");
+    const btnEn = document.getElementById("btn-en");
+    const secDe = document.getElementById("sec-de");
+    const secEn = document.getElementById("sec-en");
+
+    function setLang(lang) {
+      const isDe = lang === "de";
+      secDe.classList.toggle("active", isDe);
+      secEn.classList.toggle("active", !isDe);
+      btnDe.classList.toggle("active", isDe);
+      btnEn.classList.toggle("active", !isDe);
+      document.documentElement.lang = lang;
+
+      document.getElementById("page-title").textContent = isDe ? "Datenschutzerkl\u00e4rung" : "Privacy Policy";
+      document.getElementById("link-home").textContent = isDe ? "\u2190 Startseite" : "\u2190 Home";
+      document.getElementById("foot-home").textContent = isDe ? "Startseite" : "Home";
+      document.getElementById("foot-terms").textContent = isDe ? "Nutzungsbedingungen" : "Terms";
+      document.getElementById("foot-impressum").textContent = isDe ? "Impressum" : "Legal Notice";
+      document.getElementById("foot-deletion").textContent = isDe ? "Datenl\u00f6schung" : "Data Deletion";
+      document.getElementById("foot-cookies").textContent = isDe ? "Cookie-Einstellungen" : "Cookie settings";
+      document.getElementById("sub-text").innerHTML = isDe
+        ? 'Stand: <strong>21. April 2026</strong>'
+        : 'Last updated: <strong>April 21, 2026</strong>';
+
+      localStorage.setItem("nearspotio-lang", lang);
+    }
+
+    btnDe.addEventListener("click", function () { setLang("de"); });
+    btnEn.addEventListener("click", function () { setLang("en"); });
+
+    setLang(localStorage.getItem("nearspotio-lang") || "en");
+
+    // ---- Theme ----
+    var sunPath = 'M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z';
+    var moonPath = 'M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z';
+    var themeBtn = document.getElementById('btn-theme');
+    function setTheme(t) {
+      document.documentElement.dataset.theme = t;
+      themeBtn.querySelector('.theme-icon').innerHTML = '<path d="' + (t === 'light' ? moonPath : sunPath) + '"/>';
+      localStorage.setItem('nearspotio-theme', t);
+    }
+    themeBtn.addEventListener('click', function () {
+      setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+    setTheme(localStorage.getItem('nearspotio-theme') || 'dark');
+
+    // ---- Controller (anti-crawler) ----
+    var n = ['Flo', 'rian', ' Mauer', 'hofer'].join('');
+    var s = ['Sch\u00fctzen', 'stra\u00dfe', ' 46g', ', Top 77'].join('');
+    var c = ['6020', ' Inns', 'bruck'].join('');
+    document.getElementById('controller-de').innerHTML = '<strong>' + n + '</strong><br>' + s + '<br>' + c + ', Austria<br>E-Mail: <a class="eml" data-u="privacy" data-d="nearspotio.app"></a>';
+    document.getElementById('controller-en').innerHTML = '<strong>' + n + '</strong><br>' + s + '<br>' + c + ', Austria<br>Email: <a class="eml" data-u="privacy" data-d="nearspotio.app"></a>';
+
+    // ---- Email obfuscation ----
+    document.querySelectorAll('.eml').forEach(function (el) { var u = el.dataset.u, d = el.dataset.d, a = u + '@' + d; el.href = 'mail' + 'to:' + a; el.textContent = a; });
+  </script>
+</body>
+
+</html>

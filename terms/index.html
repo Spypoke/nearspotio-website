@@ -1,0 +1,603 @@
+<!-- =========================
+     Datei: /terms/index.html
+     ========================= -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script>!function(){var t=localStorage.getItem('nearspotio-theme');if(t)document.documentElement.dataset.theme=t}()</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>nearspotio – Nutzungsbedingungen / Terms of Use</title>
+  <meta name="description" content="Nutzungsbedingungen / Terms of Use for NearSpotio" />
+
+  <link rel="canonical" href="https://www.nearspotio.app/terms/" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
+
+  <style>
+    /* ======== VARIABLES ======== */
+    :root {
+      --bg: #06080d;
+      --bg2: #0a0d14;
+      --bg3: #0e1119;
+      --text: rgba(255, 255, 255, .93);
+      --muted: rgba(255, 255, 255, .62);
+      --line: rgba(255, 255, 255, .10);
+      --card: rgba(255, 255, 255, .04);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .5);
+      --radius: 20px;
+      --accent: #7c5cff;
+      --accent2: #2dd4bf;
+      --n-color: #C79A2E;
+      --s-color: #5FB3C8;
+      --max: 1260px;
+      --nav-bg: rgba(6, 8, 13, .82);
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f5fa;
+      --bg2: #edeef5;
+      --bg3: #e6e7f0;
+      --text: rgba(0, 0, 0, .88);
+      --muted: rgba(0, 0, 0, .52);
+      --line: rgba(0, 0, 0, .08);
+      --card: rgba(255, 255, 255, .70);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .06);
+      --nav-bg: rgba(244, 245, 250, .82);
+    }
+
+    /* ======== RESET ======== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; max-width: 100%; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ======== NAV ======== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--line);
+      transition: background .35s ease, border-color .35s ease;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-btn {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color .15s ease;
+    }
+    .back-btn:hover { color: var(--text); }
+    .back-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .logo-dark { display: block; }
+    .logo-light { display: none; }
+    [data-theme="light"] .logo-dark { display: none; }
+    [data-theme="light"] .logo-light { display: block; }
+    .logo img { width: 100%; height: 100%; display: block; }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: .2px;
+    }
+
+    .brand-part {
+      white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all .15s ease;
+      user-select: none;
+    }
+
+    .btn:hover { color: var(--text); background: var(--card); }
+    .btn.active {
+      color: var(--text);
+      border-color: rgba(124, 92, 255, .45);
+      background: rgba(124, 92, 255, .12);
+    }
+    .btn:active { transform: scale(.96); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .theme-icon { display: block; }
+
+    /* ======== PAGE CONTENT ======== */
+    .page-wrap {
+      padding: 100px 24px 60px;
+    }
+
+    .page-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      margin-bottom: 40px;
+    }
+
+    .page-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .page-header .sub {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .page-header .sub strong {
+      color: var(--text);
+    }
+
+    .content section { display: none; }
+    .content section.active { display: block; }
+
+    /* ======== LEGAL TEXT ======== */
+    h2 {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -.2px;
+      margin: 36px 0 10px 0;
+      color: var(--text);
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 15px;
+      margin: 0 0 12px 0;
+    }
+
+    li {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 15px;
+      margin: 0 0 6px 0;
+    }
+
+    ul {
+      margin: 8px 0 12px 20px;
+      padding: 0;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 255, 255, .25);
+      transition: all .15s ease;
+    }
+    a:hover { border-bottom-color: rgba(255, 255, 255, .55); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    [data-theme="light"] a { color: var(--text); border-bottom-color: rgba(0, 0, 0, .18); }
+    [data-theme="light"] a:hover { border-bottom-color: rgba(0, 0, 0, .40); }
+
+    .note {
+      margin: 16px 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(124, 92, 255, .30);
+      background: rgba(124, 92, 255, .08);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    [data-theme="light"] .note {
+      background: rgba(124, 92, 255, .06);
+      border-color: rgba(124, 92, 255, .18);
+    }
+
+    /* ======== DIVIDER ======== */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 48px 0 0 0;
+    }
+
+    /* ======== FOOTER ======== */
+    .footer-wrap {
+      border-top: 1px solid var(--line);
+      padding: 20px 24px;
+      transition: border-color .35s ease;
+    }
+
+    .footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 255, 255, .20);
+      transition: all .15s ease;
+    }
+
+    .footer a:hover { color: var(--text); border-bottom-color: rgba(255, 255, 255, .45); }
+    [data-theme="light"] .footer a { border-bottom-color: rgba(0, 0, 0, .15); }
+    [data-theme="light"] .footer a:hover { border-bottom-color: rgba(0, 0, 0, .35); }
+    .footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ======== GLOW ======== */
+    .page-glow {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(124, 92, 255, .12) 0%, rgba(45, 212, 191, .05) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="light"] .page-glow {
+      background: radial-gradient(ellipse, rgba(124, 92, 255, .08) 0%, rgba(45, 212, 191, .04) 40%, transparent 70%);
+    }
+
+    /* ======== ANIMATIONS ======== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-header { animation: fadeInUp .5s ease both; }
+    .content { animation: fadeInUp .5s ease .08s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-header, .content { animation: none; }
+    }
+
+    /* ======== THEME TRANSITIONS ======== */
+    body, .nav, .footer-wrap, .footer a, .btn, a, strong, .note {
+      transition: background .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+
+    /* ======== RESPONSIVE ======== */
+    @media (max-width: 600px) {
+      .page-wrap { padding: 80px 16px 40px; }
+      .page-header h1 { font-size: 26px; }
+      h2 { font-size: 17px; }
+      .nav-inner { padding: 0 16px; min-width: 0; }
+      .nav-left { gap: 10px; min-width: 0; flex: 1 1 auto; overflow: hidden; }
+      .nav-actions { flex: 0 0 auto; }
+      .back-btn { display: none; }
+      .brand { min-width: 0; flex: 0 1 auto; overflow: hidden; }
+    }
+  </style>
+
+  <!-- Cookie consent (loads GA4 only after opt-in) -->
+  <link rel="stylesheet" href="/css/cookieconsent.css">
+  <link rel="stylesheet" href="/css/consent-theme.css">
+  <script defer src="/js/cookieconsent.umd.js"></script>
+  <script defer src="/js/consent.js"></script>
+</head>
+
+<body>
+
+  <!-- ======== GLOW ======== -->
+  <div class="page-glow"></div>
+
+  <!-- ======== NAV ======== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a class="brand" href="/" aria-label="NearSpotio Home">
+          <div class="logo"><img class="logo-dark" src="/img/in_app_icon_d.png" alt="NearSpotio" /><img class="logo-light" src="/img/in_app_icon_l.png" alt="NearSpotio" /></div>
+          <span class="brand-name" translate="no"><span class="brand-part"><span style="display:inline-block;transform:scaleX(-1) rotate(90deg) scaleX(1.45) translateX(1px);color:var(--n-color);font-weight:700;margin-right:3px">S</span>ear</span><wbr><span class="brand-part"><span style="display:inline-block;transform:scaleX(1.45);color:var(--s-color);font-weight:700;margin-left:2.5px;margin-right:1.5px">S</span>potio</span></span>
+        </a>
+        <a class="back-btn" href="/" id="link-home">&larr; Home</a>
+      </div>
+      <div class="nav-actions">
+        <span class="btn" id="btn-theme" role="button" tabindex="0"><svg class="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"></svg></span>
+        <span class="btn" id="btn-de" role="button" tabindex="0">DE</span>
+        <span class="btn active" id="btn-en" role="button" tabindex="0">EN</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== PAGE CONTENT ======== -->
+  <div class="page-wrap">
+    <div class="page-inner">
+
+      <div class="page-header">
+        <h1 id="page-title">Terms of Use</h1>
+        <div class="sub" id="sub-text">
+          Last updated: <strong>April 15, 2026</strong>
+        </div>
+      </div>
+
+      <div class="content">
+        <!-- ======================== DEUTSCH ======================== -->
+        <section id="sec-de">
+          <p>Durch die Nutzung von <span translate="no">NearSpotio</span> ("die App") stimmst du den folgenden Nutzungsbedingungen zu. Bitte lies sie sorgf&auml;ltig durch.</p>
+
+          <h2>1. Pers&ouml;nlicher Gebrauch</h2>
+          <p>Die App ist <strong>ausschlie&szlig;lich f&uuml;r den pers&ouml;nlichen, nicht-kommerziellen Gebrauch</strong> bestimmt. Du darfst die App nutzen, um <span translate="no">Points of Interest</span> (<span translate="no">POI</span>s) entlang deiner Routen zu finden, <span translate="no">GPX</span>-Dateien mit <span translate="no">POI</span>s zu exportieren und die bereitgestellten Informationen f&uuml;r deine eigenen Touren zu verwenden.</p>
+
+          <h2>2. Kommerzielle Nutzung untersagt</h2>
+          <p>Ohne ausdr&uuml;ckliche schriftliche Genehmigung ist es <strong>untersagt</strong>:</p>
+          <ul>
+            <li>Die App oder ihre Ergebnisse (exportierte <span translate="no">GPX</span>-Dateien, <span translate="no">POI</span>-Daten) kommerziell zu nutzen</li>
+            <li>Exportierte Daten entgeltlich an Dritte weiterzuverkaufen oder zu verteilen</li>
+            <li>Einen Dienst auf Basis der App-Daten anzubieten (z.B. kostenpflichtige <span translate="no">GPX</span>-Konvertierung)</li>
+            <li>Die App systematisch oder automatisiert auszulesen (Scraping)</li>
+          </ul>
+
+          <h2>3. Fair-Use-Grenzen</h2>
+          <p>Um die faire Nutzung sicherzustellen, gelten folgende <strong>Export-Beschr&auml;nkungen</strong>:</p>
+          <ul>
+            <li><strong>Testphase</strong> f&uuml;r neue Nutzer: <strong>12 Tage</strong> mit insgesamt <strong>12 kostenlosen Routen-Exports</strong>. Werden alle 12 Exports vor Ablauf der 12 Tage aufgebraucht, endet die Testphase vorzeitig.</li>
+            <li><strong>Kostenloser Modus</strong> (nach der Testphase): maximal <strong>2 Routen-Exports pro Tag</strong>, mit Werbung</li>
+            <li><strong><span translate="no">Pro</span>-Version</strong>: maximal <strong>24 Exports pro Tag</strong></li>
+            <li>In den ersten 2 Stunden nach dem Kauf maximal <strong>10 Exports</strong></li>
+          </ul>
+          <p>Diese Limits sind f&uuml;r den normalen pers&ouml;nlichen Gebrauch (z.B. Bikepacking, Radtouren) mehr als ausreichend.</p>
+
+          <h2>4. Haftung</h2>
+          <p>Die in der App angezeigten <span translate="no">POI</span>-Daten stammen aus frei zug&auml;nglichen Quellen (insbesondere OpenStreetMap) und wurden automatisiert &uuml;bernommen. Wir k&ouml;nnen <strong>nicht gew&auml;hrleisten</strong>, dass die Informationen vollst&auml;ndig, korrekt, aktuell oder vor Ort tats&auml;chlich vorhanden sind. Die Nutzung erfolgt auf eigene Verantwortung.</p>
+          <p><strong>Hinweis zur Datengenauigkeit:</strong> Insbesondere kann nicht garantiert werden, dass eine als &bdquo;Trinkwasser&ldquo; gekennzeichnete Stelle tats&auml;chlich trinkbares Wasser f&uuml;hrt, dass eine angezeigte Apotheke, B&auml;ckerei oder ein Geldautomat tats&auml;chlich existiert, ge&ouml;ffnet oder zug&auml;nglich ist, oder dass eine Fahrradreparaturstation die ben&ouml;tigten Leistungen anbietet. Die Daten k&ouml;nnen veraltet, unvollst&auml;ndig oder fehlerhaft sein. Die <span translate="no">POI</span>-Daten auf deinem Ger&auml;t werden regelm&auml;&szlig;ig &uuml;ber automatische Updates aktualisiert &mdash; in der Regel mindestens einmal im Monat &mdash; wobei neue <span translate="no">POI</span>s hinzugef&uuml;gt, ge&auml;nderte aktualisiert und entfernte entfernt werden. Trotz dieser regelm&auml;&szlig;igen Aktualisierungen kann keine Gew&auml;hr f&uuml;r die Aktualit&auml;t oder Richtigkeit der Daten &uuml;bernommen werden. Es liegt in der alleinigen Verantwortung der Nutzerin bzw. des Nutzers, die Gegebenheiten vor Ort eigenst&auml;ndig zu &uuml;berpr&uuml;fen und zu beurteilen.</p>
+          <p><strong>Ger&auml;tekompatibilit&auml;t:</strong> <span translate="no">NearSpotio</span> exportiert <span translate="no">POI</span>-Daten im standardisierten <span translate="no">GPX</span>-Format. Die Kompatibilit&auml;t mit GPS-Ger&auml;ten und Drittanbieter-Apps (z.&nbsp;B. <span translate="no">Garmin</span>, <span translate="no">Wahoo</span>, <span translate="no">Coros</span>, <span translate="no">Suunto</span>) kann aufgrund der Vielzahl an Ger&auml;temodellen, Firmwareversionen und App-Versionen nicht garantiert werden. Genau aus diesem Grund bietet <span translate="no">NearSpotio</span> eine kostenlose Testphase mit 12 Routen-Exports innerhalb von 12 Tagen, um die Kompatibilit&auml;t mit dem eigenen Setup vor dem Kauf zu testen.</p>
+          <p>Unsere Haftung f&uuml;r Sch&auml;den, die aus der Nutzung der App oder ihrer Daten entstehen, ist wie folgt geregelt:</p>
+          <ul>
+            <li>Bei <strong>Vorsatz und grober Fahrl&auml;ssigkeit</strong> haften wir unbeschr&auml;nkt.</li>
+            <li>Bei <strong>Personensch&auml;den</strong> (Verletzung von Leben, K&ouml;rper oder Gesundheit) haften wir unbeschr&auml;nkt, unabh&auml;ngig vom Verschuldensgrad.</li>
+            <li>Bei <strong>leichter Fahrl&auml;ssigkeit</strong> haften wir nur bei Verletzung einer wesentlichen Vertragspflicht (Kardinalpflicht). In diesem Fall ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt.</li>
+            <li>Die Haftung f&uuml;r <strong>mittelbare Sch&auml;den, Folgesch&auml;den und entgangenen Gewinn</strong> bei leichter Fahrl&auml;ssigkeit ist ausgeschlossen.</li>
+          </ul>
+          <p>Diese Haftungsregelung gilt auch zugunsten unserer Erf&uuml;llungsgehilfen. Zwingende gesetzliche Haftungsanspr&uuml;che bleiben unber&uuml;hrt.</p>
+
+          <h2>5. Geistiges Eigentum</h2>
+          <p>Die App, ihr Design, ihre Funktionen und die zugrunde liegende Software sind urheberrechtlich gesch&uuml;tzt. Das Kopieren, Dekompilieren oder Reverse-Engineering der App ist untersagt.</p>
+
+          <h2>6. In-App-K&auml;ufe &amp; Digitale Inhalte</h2>
+          <p>Die <span translate="no">Pro</span>-Version wird als einmaliger In-App-Kauf angeboten. Es handelt sich um <strong>digitale Inhalte</strong>, die nicht auf einem k&ouml;rperlichen Datentr&auml;ger geliefert werden.</p>
+          <p><strong>Kostenlose Testphase:</strong> Neue Nutzer erhalten eine einmalige, ger&auml;tegebundene Testphase: <strong>12 Tage</strong> mit insgesamt <strong>12 kostenlosen Routen-Exports</strong>. Werden alle 12 Exports vor Ablauf der 12 Tage aufgebraucht, endet die Testphase vorzeitig. W&auml;hrend der Testphase wird Werbung angezeigt. Nach Ablauf f&auml;llt der Nutzer in den kostenlosen Modus zur&uuml;ck (2 Routen-Exports pro Tag, mit Werbung). Die Testphase kann nicht zur&uuml;ckgesetzt oder verl&auml;ngert werden.</p>
+          <p><strong>Zahlungsabwicklung:</strong> Der Kauf wird ausschlie&szlig;lich &uuml;ber den jeweiligen App Store abgewickelt &ndash; <strong><span translate="no">Google Play</span></strong> (Google Ireland Limited) bzw. <strong><span translate="no">Apple App Store</span></strong> (Apple Distribution International Ltd.). <span translate="no">NearSpotio</span> hat keinen Zugriff auf deine Zahlungsdaten. Es gelten die Zahlungs- und R&uuml;ckgabebedingungen des jeweiligen Stores.</p>
+          <p><strong>Widerrufsrecht:</strong> Mit dem Kauf stimmst du zu, dass die Bereitstellung der digitalen Inhalte sofort beginnt. Du wirst darauf hingewiesen, dass du mit Beginn der Ausf&uuml;hrung dein <strong>Widerrufsrecht gem&auml;&szlig; &sect; 18 Abs. 1 Z 11 FAGG</strong> (&ouml;sterreichisches Fern- und Ausw&auml;rtsgesch&auml;fte-Gesetz) bzw. Art. 16 lit. m der EU-Richtlinie 2011/83/EU verlierst. Die <span translate="no">Pro</span>-Funktionen stehen dir nach dem Kauf sofort und dauerhaft zur Verf&uuml;gung.</p>
+
+          <h2>7. &Auml;nderungen</h2>
+          <p>Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu &auml;ndern. Wesentliche &Auml;nderungen werden innerhalb der App mitgeteilt. Die fortgesetzte Nutzung der App nach einer &Auml;nderung gilt als Zustimmung.</p>
+
+          <h2>8. Anwendbares Recht &amp; Gerichtsstand</h2>
+          <p>Es gilt das Recht der <strong>Republik &Ouml;sterreich</strong> unter Ausschluss des UN-Kaufrechts (CISG) und der Verweisungsnormen des internationalen Privatrechts.</p>
+          <p>Zwingende Verbraucherschutzbestimmungen des Staates, in dem du deinen gew&ouml;hnlichen Aufenthalt hast, bleiben hiervon <strong>unber&uuml;hrt</strong> (Art. 6 Abs. 2 Rom-I-Verordnung, VO (EG) Nr. 593/2008). Dir stehen daher in jedem Fall die Schutzrechte zu, die dir das Recht deines Wohnsitzstaates zwingend gew&auml;hrt.</p>
+          <p>Gerichtsstand ist, soweit gesetzlich zul&auml;ssig, Innsbruck, &Ouml;sterreich. F&uuml;r Verbraucher im Sinne des Konsumentenschutzgesetzes (KSchG) gilt der gesetzliche Gerichtsstand.</p>
+
+          <h2>9. Kontakt</h2>
+          <p>Bei Fragen zu diesen Nutzungsbedingungen kontaktiere uns unter:<br>
+            <a class="eml" data-u="mail" data-d="nearspotio.app"></a>
+          </p>
+        </section>
+
+        <!-- ======================== ENGLISH ======================== -->
+        <section id="sec-en" class="active">
+          <p>By using <span translate="no">NearSpotio</span> ("the App"), you agree to the following terms of use. Please read them carefully.</p>
+
+          <h2>1. Personal Use</h2>
+          <p>The App is intended <strong>exclusively for personal, non-commercial use</strong>. You may use the App to find <span translate="no">points of interest</span> (<span translate="no">POI</span>s) along your routes, export <span translate="no">GPX</span> files with <span translate="no">POI</span>s, and use the provided information for your own tours.</p>
+
+          <h2>2. Commercial Use Prohibited</h2>
+          <p>Without express written permission, it is <strong>prohibited</strong> to:</p>
+          <ul>
+            <li>Use the App or its results (exported <span translate="no">GPX</span> files, <span translate="no">POI</span> data) commercially</li>
+            <li>Resell or distribute exported data to third parties for payment</li>
+            <li>Offer a service based on the App's data (e.g. paid <span translate="no">GPX</span> conversion)</li>
+            <li>Systematically or automatically extract data from the App (scraping)</li>
+          </ul>
+
+          <h2>3. Fair Use Limits</h2>
+          <p>To ensure fair usage, the following <strong>export restrictions</strong> apply:</p>
+          <ul>
+            <li><strong>Trial period</strong> for new users: <strong>12 days</strong> with a total of <strong>12 free route exports</strong>. If all 12 exports are used before the 12 days expire, the trial ends early.</li>
+            <li><strong>Free mode</strong> (after trial): maximum of <strong>2 route exports per day</strong>, with ads</li>
+            <li><strong><span translate="no">Pro</span> version</strong>: maximum of <strong>24 exports per day</strong></li>
+            <li>Maximum of <strong>10 exports</strong> within the first 2 hours after purchase</li>
+          </ul>
+          <p>These limits are more than sufficient for normal personal use (e.g. bikepacking, cycling tours).</p>
+
+          <h2>4. Liability</h2>
+          <p>The <span translate="no">POI</span> data displayed in the App originates from freely accessible sources (in particular OpenStreetMap) and has been imported automatically. We <strong>cannot guarantee</strong> that the information is complete, correct, up-to-date, or actually present on site. Use is at your own risk.</p>
+          <p><strong>Data accuracy notice:</strong> In particular, there is no guarantee that a location marked as "drinking water" actually provides potable water, that a displayed pharmacy, bakery or ATM actually exists, is open or accessible, or that a bicycle repair station offers the services needed. The data may be outdated, incomplete or inaccurate. The <span translate="no">POI</span> data on your device is updated regularly via automatic updates &mdash; typically at least once a month &mdash; adding new <span translate="no">POI</span>s, updating changed ones and removing deleted ones. Despite these regular updates, no guarantee can be given regarding the accuracy or timeliness of the data. It is the sole responsibility of the user to independently verify and assess the conditions on site.</p>
+          <p><strong>Device compatibility:</strong> <span translate="no">NearSpotio</span> exports <span translate="no">POI</span> data in the standardised <span translate="no">GPX</span> format. Compatibility with GPS devices and third-party apps (e.g. <span translate="no">Garmin</span>, <span translate="no">Wahoo</span>, <span translate="no">Coros</span>, <span translate="no">Suunto</span>) cannot be guaranteed due to the wide variety of device models, firmware versions and app versions. This is precisely why <span translate="no">NearSpotio</span> offers a free trial period with 12 route exports within 12 days, allowing you to test compatibility with your own setup before purchasing.</p>
+          <p>Our liability for damages arising from the use of the App or its data is governed as follows:</p>
+          <ul>
+            <li>In cases of <strong>intent and gross negligence</strong>, we are liable without limitation.</li>
+            <li>For <strong>personal injury</strong> (harm to life, body, or health), we are liable without limitation, regardless of the degree of fault.</li>
+            <li>In cases of <strong>slight negligence</strong>, we are only liable for breach of a material contractual obligation (cardinal obligation). In such cases, liability is limited to the foreseeable, contract-typical damage.</li>
+            <li>Liability for <strong>indirect damages, consequential damages, and lost profits</strong> in cases of slight negligence is excluded.</li>
+          </ul>
+          <p>This limitation of liability also applies in favour of our vicarious agents. Mandatory statutory liability claims remain unaffected.</p>
+
+          <h2>5. Intellectual Property</h2>
+          <p>The App, its design, features, and underlying software are protected by copyright. Copying, decompiling, or reverse-engineering the App is prohibited.</p>
+
+          <h2>6. In-App Purchases &amp; Digital Content</h2>
+          <p>The <span translate="no">Pro</span> version is offered as a one-time in-app purchase. It constitutes <strong>digital content</strong> that is not supplied on a tangible medium.</p>
+          <p><strong>Free trial period:</strong> New users receive a one-time, device-bound trial period: <strong>12 days</strong> with a total of <strong>12 free route exports</strong>. If all 12 exports are used before the 12 days expire, the trial ends early. Ads are displayed during the trial period. After expiry, the user reverts to the free mode (2 route exports per day, with ads). The trial period cannot be reset or extended.</p>
+          <p><strong>Payment processing:</strong> The purchase is processed exclusively through the respective app store &ndash; <strong><span translate="no">Google Play</span></strong> (Google Ireland Limited) or <strong><span translate="no">Apple App Store</span></strong> (Apple Distribution International Ltd.). <span translate="no">NearSpotio</span> does not have access to your payment information. The payment and refund policies of the respective store apply.</p>
+          <p><strong>Right of withdrawal:</strong> By making the purchase, you consent to the immediate delivery of the digital content. You acknowledge that you thereby <strong>lose your right of withdrawal pursuant to &sect; 18(1)(11) FAGG</strong> (Austrian Distance and Off-Premises Contracts Act) and Art. 16(m) of EU Directive 2011/83/EU. The <span translate="no">Pro</span> features are available to you immediately and permanently after purchase.</p>
+
+          <h2>7. Changes</h2>
+          <p>We reserve the right to modify these terms of use at any time. Significant changes will be communicated within the App. Continued use of the App after a change constitutes acceptance.</p>
+
+          <h2>8. Governing Law &amp; Jurisdiction</h2>
+          <p>These terms are governed by the laws of the <strong>Republic of Austria</strong>, excluding the UN Convention on Contracts for the International Sale of Goods (CISG) and the conflict-of-law rules of private international law.</p>
+          <p>Mandatory consumer protection provisions of the country in which you have your habitual residence shall remain <strong>unaffected</strong> (Art. 6(2) of the Rome I Regulation, Regulation (EC) No 593/2008). You therefore retain any mandatory protective rights granted to you by the laws of your country of residence.</p>
+          <p>The place of jurisdiction is Innsbruck, Austria, to the extent permitted by law. For consumers within the meaning of the Austrian Consumer Protection Act (KSchG), the statutory place of jurisdiction applies.</p>
+
+          <h2>9. Contact</h2>
+          <p>If you have questions about these terms of use, please contact us at:<br>
+            <a class="eml" data-u="mail" data-d="nearspotio.app"></a>
+          </p>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <div class="footer-wrap">
+    <div class="footer">
+      <div>&copy; <span id="year"></span> <span translate="no">nearspotio</span></div>
+      <div>
+        <a href="/" id="foot-home">Home</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="/privacy/" id="foot-privacy">Privacy</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="/impressum/" id="foot-impressum">Legal Notice</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="/data-deletion/" id="foot-deletion">Data Deletion</a>
+        <span style="opacity:.45">&bull;</span>
+        <a href="#" data-cc="show-preferencesModal" id="foot-cookies">Cookie settings</a>
+        <span style="opacity:.45">&bull;</span>
+        <span><a class="eml" data-u="mail" data-d="nearspotio.app" style="cursor:pointer"></a></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---- Language ----
+    var btnDe = document.getElementById("btn-de");
+    var btnEn = document.getElementById("btn-en");
+    var secDe = document.getElementById("sec-de");
+    var secEn = document.getElementById("sec-en");
+
+    function setLang(lang) {
+      var isDe = lang === "de";
+      secDe.classList.toggle("active", isDe);
+      secEn.classList.toggle("active", !isDe);
+      btnDe.classList.toggle("active", isDe);
+      btnEn.classList.toggle("active", !isDe);
+      document.documentElement.lang = lang;
+
+      document.getElementById("page-title").textContent = isDe ? "Nutzungsbedingungen" : "Terms of Use";
+      document.getElementById("sub-text").innerHTML = isDe
+        ? 'Stand: <strong>15. April 2026</strong>'
+        : 'Last updated: <strong>April 15, 2026</strong>';
+      document.getElementById("link-home").textContent = isDe ? "\u2190 Startseite" : "\u2190 Home";
+      document.getElementById("foot-home").textContent = isDe ? "Startseite" : "Home";
+      document.getElementById("foot-privacy").textContent = isDe ? "Datenschutz" : "Privacy";
+      document.getElementById("foot-impressum").textContent = isDe ? "Impressum" : "Legal Notice";
+      document.getElementById("foot-deletion").textContent = isDe ? "Datenl\u00f6schung" : "Data Deletion";
+      document.getElementById("foot-cookies").textContent = isDe ? "Cookie-Einstellungen" : "Cookie settings";
+
+      localStorage.setItem("nearspotio-lang", lang);
+    }
+
+    btnDe.addEventListener("click", function () { setLang("de"); });
+    btnEn.addEventListener("click", function () { setLang("en"); });
+
+    setLang(localStorage.getItem("nearspotio-lang") || "en");
+
+    // ---- Theme ----
+    var sunPath = 'M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z';
+    var moonPath = 'M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z';
+    var themeBtn = document.getElementById('btn-theme');
+    function setTheme(t) {
+      document.documentElement.dataset.theme = t;
+      themeBtn.querySelector('.theme-icon').innerHTML = '<path d="' + (t === 'light' ? moonPath : sunPath) + '"/>';
+      localStorage.setItem('nearspotio-theme', t);
+    }
+    themeBtn.addEventListener('click', function () {
+      setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+    setTheme(localStorage.getItem('nearspotio-theme') || 'dark');
+
+    // ---- Email obfuscation ----
+    document.querySelectorAll('.eml').forEach(function (el) {
+      var a = el.dataset.u + '@' + el.dataset.d;
+      el.href = 'mail' + 'to:' + a;
+      el.textContent = a;
+    });
+  </script>
+</body>
+</html>
