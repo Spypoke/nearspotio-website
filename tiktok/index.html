@@ -1,0 +1,415 @@
+<!-- =========================
+     Datei: /tiktok/index.html
+     Landing page for TikTok-Ads traffic — fast first paint, auto-redirect to store.
+     ========================= -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <script>!function () { var t = localStorage.getItem('nearspotio-theme'); if (t) document.documentElement.dataset.theme = t }()</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>NearSpotio</title>
+
+  <link rel="canonical" href="https://www.nearspotio.app/tiktok/" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
+
+  <style>
+    :root {
+      --bg: #06080d;
+      --text: rgba(255, 255, 255, .93);
+      --muted: rgba(255, 255, 255, .62);
+      --line: rgba(255, 255, 255, .10);
+      --card: rgba(255, 255, 255, .04);
+      --card-hover: rgba(255, 255, 255, .07);
+      --accent: #7c5cff;
+      --accent2: #2dd4bf;
+      --n-color: #C79A2E;
+      --s-color: #5FB3C8;
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f5fa;
+      --text: rgba(0, 0, 0, .88);
+      --muted: rgba(0, 0, 0, .52);
+      --line: rgba(0, 0, 0, .08);
+      --card: rgba(255, 255, 255, .70);
+      --card-hover: rgba(255, 255, 255, .90);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { max-width: 100%; overflow-x: clip; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px 60px;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 700px;
+      background: radial-gradient(ellipse, rgba(124, 92, 255, .20) 0%, rgba(45, 212, 191, .08) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="light"] body::before {
+      background: radial-gradient(ellipse, rgba(124, 92, 255, .12) 0%, rgba(45, 212, 191, .06) 40%, transparent 70%);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo {
+      width: 180px;
+      max-width: 60vw;
+    }
+
+    .logo img { width: 100%; height: auto; }
+    .logo-dark { display: block; }
+    .logo-light { display: none; }
+    [data-theme="light"] .logo-dark { display: none; }
+    [data-theme="light"] .logo-light { display: block; }
+
+    h1 {
+      font-size: clamp(22px, 5.5vw, 30px);
+      font-weight: 900;
+      letter-spacing: -.6px;
+      line-height: 1.18;
+    }
+
+    .gradient {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sub {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 16px;
+      font-weight: 450;
+      max-width: 360px;
+    }
+
+    .devices {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: -4px;
+    }
+
+    .devices-label {
+      font-size: 12px;
+      color: var(--muted);
+      opacity: .85;
+      letter-spacing: .2px;
+    }
+
+    .dtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .dtag {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .store-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 320px;
+      margin-top: 4px;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 22px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all .18s ease;
+      width: 100%;
+    }
+
+    .store-btn:hover {
+      transform: translateY(-2px);
+      background: var(--card-hover);
+      border-color: rgba(124, 92, 255, .30);
+      box-shadow: 0 8px 30px rgba(124, 92, 255, .12);
+    }
+
+    .store-btn:active { transform: scale(.97); }
+    .store-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .store-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .fallback-hint {
+      font-size: 12px;
+      color: var(--muted);
+      opacity: .8;
+      line-height: 1.4;
+      display: none;
+    }
+
+    .fallback-hint.show { display: block; }
+
+    .legal {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      opacity: .7;
+    }
+
+    .legal a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed currentColor;
+      padding-bottom: 1px;
+      transition: opacity .15s ease, color .15s ease;
+    }
+
+    .legal a:hover { color: var(--text); opacity: 1; }
+    .legal a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .legal .sep { margin: 0 8px; opacity: .55; }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, .store-btn { transition: none; }
+    }
+  </style>
+
+  <!-- Cookie consent (loads GA4 only after opt-in). On mobile the redirect fires before
+       the banner renders, so it's effectively desktop-only here. -->
+  <link rel="stylesheet" href="/css/cookieconsent.css">
+  <link rel="stylesheet" href="/css/consent-theme.css">
+  <script defer src="/js/cookieconsent.umd.js"></script>
+  <script defer src="/js/consent.js"></script>
+</head>
+
+<body class="notranslate" translate="no">
+
+  <div class="wrap">
+    <div class="logo">
+      <img class="logo-dark" src="/img/in_app_icon_d.png" alt="NearSpotio" />
+      <img class="logo-light" src="/img/in_app_icon_l.png" alt="NearSpotio" />
+    </div>
+
+    <h1><span id="headline"></span><br><span id="headline-accent" class="gradient"></span></h1>
+    <p class="sub" id="sub"></p>
+
+    <div class="devices">
+      <span class="devices-label" id="devices-label"></span>
+      <div class="dtags">
+        <span class="dtag" translate="no">Garmin</span>
+        <span class="dtag" translate="no">Wahoo</span>
+        <span class="dtag" translate="no">Suunto</span>
+        <span class="dtag" translate="no">Coros</span>
+        <span class="dtag" translate="no">Bryton</span>
+      </div>
+    </div>
+
+    <div class="store-links">
+      <a class="store-btn" id="btn-play" href="#" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.707l2.108 1.22a1 1 0 0 1 0 1.74l-2.108 1.22-2.537-2.09 2.537-2.09zM5.864 3.458L16.8 9.79l-2.302 2.302-8.634-8.634z" />
+        </svg>
+        <span translate="no">Google Play</span>
+      </a>
+      <a class="store-btn" id="btn-apple" href="#" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+        </svg>
+        <span translate="no">App Store</span>
+      </a>
+      <div class="fallback-hint" id="fallback-hint"></div>
+    </div>
+  </div>
+
+  <footer class="legal">
+    <a href="/privacy/" id="link-privacy"></a><span class="sep">·</span><a href="/impressum/" id="link-imprint"></a>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var PLAY_URL = 'https://play.google.com/store/apps/details?id=app.nearspotio&utm_source=tiktok&utm_medium=cpc&utm_campaign=boost';
+      var APPLE_URL_HTTPS = 'https://apps.apple.com/app/nearspotio-bikepacking-pois/id6764373947?ct=tiktok&mt=8';
+      var APPLE_URL_ITMS = 'itms-apps://apps.apple.com/app/nearspotio-bikepacking-pois/id6764373947?ct=tiktok&mt=8';
+
+      var i18n = {
+        de: {
+          headline: '3,3 Mio. Bikepacking-POIs offline',
+          headlineAccent: 'für deine nächste Tour',
+          sub: 'Trinkwasser, Toiletten, Bäckereien, Apotheken, Supermärkte, Bike-Repair-Stationen, Bike-Shops, E-Bike-Charging, Schlauchautomaten — automatisch entlang deiner GPX-Route.',
+          devices: 'Funktioniert mit',
+          fallback: 'Tipp: Im Safari öffnen, falls der App Store nicht startet',
+          privacy: 'Datenschutz', imprint: 'Impressum'
+        },
+        en: {
+          headline: '3.3M offline bikepacking POIs',
+          headlineAccent: 'for your next tour',
+          sub: 'Drinking water, toilets, bakeries, pharmacies, supermarkets, bike repair stations, bike shops, e-bike charging, tube vending — automatically along your GPX route.',
+          devices: 'Works with',
+          fallback: 'Tip: open in Safari if the App Store doesn’t launch',
+          privacy: 'Privacy', imprint: 'Imprint'
+        },
+        fr: {
+          headline: '3,3 M de POI bikepacking hors-ligne',
+          headlineAccent: 'pour ton prochain voyage',
+          sub: 'Eau potable, toilettes, boulangeries, pharmacies, supermarchés, stations de réparation, magasins de vélo, recharge e-bike, distributeurs de chambres à air — automatiquement le long de ton GPX.',
+          devices: 'Compatible avec',
+          fallback: 'Astuce : ouvre dans Safari si l’App Store ne s’ouvre pas',
+          privacy: 'Confidentialité', imprint: 'Mentions légales'
+        },
+        it: {
+          headline: '3,3 mln di POI bikepacking offline',
+          headlineAccent: 'per il tuo prossimo tour',
+          sub: 'Acqua potabile, bagni, panetterie, farmacie, supermercati, stazioni di riparazione, negozi di bici, ricarica e-bike, distributori di camere d’aria — automaticamente lungo il tuo GPX.',
+          devices: 'Funziona con',
+          fallback: 'Suggerimento: apri in Safari se l’App Store non si avvia',
+          privacy: 'Privacy', imprint: 'Note legali'
+        },
+        es: {
+          headline: '3,3 M de POIs de bikepacking offline',
+          headlineAccent: 'para tu próxima ruta',
+          sub: 'Agua potable, baños, panaderías, farmacias, supermercados, estaciones de reparación, tiendas de bicis, carga e-bike, máquinas de cámaras — automáticamente en tu ruta GPX.',
+          devices: 'Compatible con',
+          fallback: 'Consejo: abre en Safari si la App Store no se inicia',
+          privacy: 'Privacidad', imprint: 'Aviso legal'
+        },
+        pl: {
+          headline: '3,3 mln POI dla bikepackingu offline',
+          headlineAccent: 'na Twoją kolejną trasę',
+          sub: 'Woda pitna, toalety, piekarnie, apteki, supermarkety, stacje naprawcze, sklepy rowerowe, ładowanie e-bike, automaty z dętkami — automatycznie wzdłuż Twojej trasy GPX.',
+          devices: 'Działa z',
+          fallback: 'Wskazówka: otwórz w Safari, jeśli App Store się nie uruchomi',
+          privacy: 'Prywatność', imprint: 'Informacje prawne'
+        },
+        nl: {
+          headline: '3,3 mln offline bikepacking-POI’s',
+          headlineAccent: 'voor je volgende tour',
+          sub: 'Drinkwater, toiletten, bakkers, apotheken, supermarkten, reparatiestations, fietswinkels, e-bike charging, binnenband-automaten — automatisch langs je GPX-route.',
+          devices: 'Werkt met',
+          fallback: 'Tip: open in Safari als de App Store niet start',
+          privacy: 'Privacy', imprint: 'Colofon'
+        }
+      };
+
+      var lang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      if (!i18n[lang]) lang = 'en';
+      var t = i18n[lang];
+
+      document.documentElement.lang = lang;
+      document.title = 'NearSpotio — ' + t.headline;
+      document.getElementById('headline').textContent = t.headline;
+      var accent = document.getElementById('headline-accent');
+      if (t.headlineAccent) {
+        accent.textContent = t.headlineAccent;
+      } else {
+        accent.style.display = 'none';
+        var brEl = accent.previousElementSibling;
+        if (brEl && brEl.tagName === 'BR') brEl.style.display = 'none';
+      }
+      document.getElementById('sub').textContent = t.sub;
+      document.getElementById('devices-label').textContent = t.devices || 'Works with';
+      document.getElementById('link-privacy').textContent = t.privacy;
+      document.getElementById('link-imprint').textContent = t.imprint;
+
+      var ua = navigator.userAgent || '';
+      var isAndroid = /Android/i.test(ua);
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+      var btnPlay = document.getElementById('btn-play');
+      var btnApple = document.getElementById('btn-apple');
+      btnPlay.href = PLAY_URL;
+      btnApple.href = isIOS ? APPLE_URL_ITMS : APPLE_URL_HTTPS;
+
+      // window.gtag is exposed by /js/consent.js only after the user accepted analytics.
+      function trackStore(store) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'store_click', { store: store, transport_type: 'beacon' });
+        }
+      }
+
+      btnPlay.addEventListener('click', function () { trackStore('play'); });
+      btnApple.addEventListener('click', function () { trackStore('apple'); });
+
+      if (isIOS) {
+        var hint = document.getElementById('fallback-hint');
+        hint.textContent = t.fallback;
+        hint.classList.add('show');
+      }
+
+      if (isAndroid) {
+        setTimeout(function () {
+          trackStore('play');
+          window.location.replace(PLAY_URL);
+        }, 300);
+      } else if (isIOS) {
+        setTimeout(function () {
+          trackStore('apple');
+          window.location.replace(APPLE_URL_ITMS);
+        }, 300);
+      }
+    })();
+  </script>
+</body>
+
+</html>
