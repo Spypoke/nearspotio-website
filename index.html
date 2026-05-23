@@ -194,6 +194,43 @@
     .content section { display: none; }
     .content section.active { display: block; }
 
+    /* ======== STATUS NOTICE ======== */
+    .notice {
+      max-width: var(--max);
+      margin: 76px auto 0;
+      padding: 0 24px;
+    }
+    .notice ~ section .hero-wrap { padding-top: 40px; }
+    .notice-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(245, 158, 11, .10);
+      border: 1px solid rgba(245, 158, 11, .35);
+    }
+    .notice-ico {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      color: #f59e0b;
+      margin-top: 1px;
+    }
+    .notice p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .notice .notice-de, .notice .notice-en { display: none; }
+    .notice.is-de .notice-de { display: block; }
+    .notice:not(.is-de) .notice-en { display: block; }
+
+    @media (max-width: 768px) {
+      .notice { padding: 0 16px; }
+    }
+
     /* ======== HERO ======== */
     .hero-wrap {
       position: relative;
@@ -686,6 +723,17 @@
 
   <div class="content">
 
+    <!-- ======== STATUS NOTICE (temporary — remove once map fix is live) ======== -->
+    <div class="notice" id="notice" role="status">
+      <div class="notice-inner">
+        <svg class="notice-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2 1 21h22L12 2zm0 5.5c.62 0 1.1.53 1.04 1.15l-.4 4.35a.65.65 0 0 1-1.28 0l-.4-4.35A1.04 1.04 0 0 1 12 7.5zm0 8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
+        </svg>
+        <p class="notice-de">Aktuelle St&ouml;rung: Der Kartendienst <span translate="no">OpenFreeMap</span> ist derzeit nicht erreichbar, dadurch wird die Karte in <span translate="no">NearSpotio</span> teilweise wei&szlig; angezeigt. Das Importieren von Routen, das Erg&auml;nzen mit <span translate="no">POI</span>s und der Export sind <strong>nicht</strong> betroffen und funktionieren weiterhin. Das n&auml;chste Update behebt den Fehler &ndash; sobald es im <span translate="no">App Store</span> (<span translate="no">iOS</span>) und bei <span translate="no">Google Play</span> (<span translate="no">Android</span>) verf&uuml;gbar ist. Danke f&uuml;r deine Geduld!</p>
+        <p class="notice-en">Current outage: the map provider <span translate="no">OpenFreeMap</span> is currently unreachable, so the map in <span translate="no">NearSpotio</span> may appear partly white. Importing routes, enriching them with <span translate="no">POI</span>s and exporting are <strong>not</strong> affected and keep working as usual. The next update fixes this &ndash; as soon as it&rsquo;s available on the <span translate="no">App Store</span> (<span translate="no">iOS</span>) and <span translate="no">Google Play</span> (<span translate="no">Android</span>). Thanks for your patience!</p>
+      </div>
+    </div>
+
     <!-- ======================== ENGLISH ======================== -->
     <section id="sec-en" class="active">
 
@@ -968,6 +1016,9 @@
       btnDe.classList.toggle("active", isDe);
       btnEn.classList.toggle("active", !isDe);
       document.documentElement.lang = lang;
+
+      var notice = document.getElementById("notice");
+      if (notice) notice.classList.toggle("is-de", isDe);
 
       document.getElementById("link-privacy").textContent = isDe ? "Datenschutz" : "Privacy";
       document.getElementById("link-terms").textContent = isDe ? "Nutzungsbedingungen" : "Terms";
