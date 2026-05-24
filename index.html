@@ -197,7 +197,7 @@
     /* ======== STATUS NOTICE ======== */
     .notice {
       max-width: var(--max);
-      margin: 76px auto 0;
+      margin: 76px auto 20px;
       padding: 0 24px;
     }
     .notice:not([hidden]) ~ section .hero-wrap { padding-top: 40px; }
@@ -223,9 +223,6 @@
       line-height: 1.55;
       color: var(--text);
     }
-    .notice .notice-de, .notice .notice-en { display: none; }
-    .notice.is-de .notice-de { display: block; }
-    .notice:not(.is-de) .notice-en { display: block; }
 
     @media (max-width: 768px) {
       .notice { padding: 0 16px; }
@@ -723,14 +720,13 @@
 
   <div class="content">
 
-    <!-- ======== STATUS NOTICE (temporary — remove once map fix is live) ======== -->
+    <!-- ======== STATUS NOTICE — Text kommt aus /status.json (beide Felder leer = ausgeblendet) ======== -->
     <div class="notice" id="notice" role="status" hidden>
       <div class="notice-inner">
         <svg class="notice-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2 1 21h22L12 2zm0 5.5c.62 0 1.1.53 1.04 1.15l-.4 4.35a.65.65 0 0 1-1.28 0l-.4-4.35A1.04 1.04 0 0 1 12 7.5zm0 8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
         </svg>
-        <p class="notice-de">Aktuelle St&ouml;rung: Der Kartendienst <span translate="no">OpenFreeMap</span> ist derzeit nicht erreichbar, dadurch wird die Karte in <span translate="no">NearSpotio</span> teilweise wei&szlig; angezeigt. Das Importieren von Routen, das Erg&auml;nzen mit <span translate="no">POI</span>s und der Export sind <strong>nicht</strong> betroffen und funktionieren weiterhin. Das n&auml;chste Update behebt den Fehler &ndash; sobald es im <span translate="no">App Store</span> (<span translate="no">iOS</span>) und bei <span translate="no">Google Play</span> (<span translate="no">Android</span>) verf&uuml;gbar ist. Danke f&uuml;r deine Geduld!</p>
-        <p class="notice-en">Current outage: the map provider <span translate="no">OpenFreeMap</span> is currently unreachable, so the map in <span translate="no">NearSpotio</span> may appear partly white. Importing routes, enriching them with <span translate="no">POI</span>s and exporting are <strong>not</strong> affected and keep working as usual. The next update fixes this &ndash; as soon as it&rsquo;s available on the <span translate="no">App Store</span> (<span translate="no">iOS</span>) and <span translate="no">Google Play</span> (<span translate="no">Android</span>). Thanks for your patience!</p>
+        <p id="notice-text" translate="no"></p>
       </div>
     </div>
 
@@ -1003,6 +999,34 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // ---- Status banner (Text aus /status.json — beide Felder leer = ausgeblendet) ----
+    var noticeEl = document.getElementById("notice");
+    var noticeText = document.getElementById("notice-text");
+    var bannerMsg = { de: "", en: "" };
+
+    function updateBanner() {
+      if (!noticeEl) return;
+      var lang = document.documentElement.lang === "de" ? "de" : "en";
+      var msg = (bannerMsg[lang] || "").trim();
+      if (msg) {
+        noticeText.textContent = msg;
+        noticeEl.hidden = false;
+      } else {
+        noticeEl.hidden = true;
+      }
+    }
+
+    fetch("/status.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (data) {
+          bannerMsg.de = (data.de || "").toString();
+          bannerMsg.en = (data.en || "").toString();
+        }
+        updateBanner();
+      })
+      .catch(function () { /* nicht erreichbar -> Banner bleibt ausgeblendet */ });
+
     // ---- Language ----
     const btnDe = document.getElementById("btn-de");
     const btnEn = document.getElementById("btn-en");
@@ -1017,8 +1041,7 @@
       btnEn.classList.toggle("active", !isDe);
       document.documentElement.lang = lang;
 
-      var notice = document.getElementById("notice");
-      if (notice) notice.classList.toggle("is-de", isDe);
+      updateBanner();
 
       document.getElementById("link-privacy").textContent = isDe ? "Datenschutz" : "Privacy";
       document.getElementById("link-terms").textContent = isDe ? "Nutzungsbedingungen" : "Terms";
