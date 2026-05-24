@@ -200,7 +200,7 @@
       margin: 76px auto 0;
       padding: 0 24px;
     }
-    .notice ~ section .hero-wrap { padding-top: 40px; }
+    .notice:not([hidden]) ~ section .hero-wrap { padding-top: 40px; }
     .notice-inner {
       display: flex;
       align-items: flex-start;
@@ -724,7 +724,7 @@
   <div class="content">
 
     <!-- ======== STATUS NOTICE (temporary — remove once map fix is live) ======== -->
-    <div class="notice" id="notice" role="status">
+    <div class="notice" id="notice" role="status" hidden>
       <div class="notice-inner">
         <svg class="notice-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2 1 21h22L12 2zm0 5.5c.62 0 1.1.53 1.04 1.15l-.4 4.35a.65.65 0 0 1-1.28 0l-.4-4.35A1.04 1.04 0 0 1 12 7.5zm0 8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
