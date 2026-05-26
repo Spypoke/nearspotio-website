@@ -451,11 +451,31 @@
     }
 
     @media (max-width: 600px) {
-      .nav-inner { padding: 0 16px; min-width: 0; }
-      .nav-left { gap: 10px; min-width: 0; flex: 1 1 auto; overflow: hidden; }
-      .nav-actions { flex: 0 0 auto; }
-      .back-btn { display: none; }
-      .brand { min-width: 0; flex: 0 1 auto; overflow: hidden; }
+      .nav-inner {
+        padding: 0 16px;
+        min-width: 0;
+      }
+
+      .nav-left {
+        gap: 10px;
+        min-width: 0;
+        flex: 1 1 auto;
+        overflow: hidden;
+      }
+
+      .nav-actions {
+        flex: 0 0 auto;
+      }
+
+      .back-btn {
+        display: none;
+      }
+
+      .brand {
+        min-width: 0;
+        flex: 0 1 auto;
+        overflow: hidden;
+      }
     }
 
     /* ======== THEME TRANSITIONS ======== */
@@ -489,8 +509,9 @@
           <div class="logo"><img class="logo-dark" src="/img/in_app_icon_d.png" alt="NearSpotio" /><img
               class="logo-light" src="/img/in_app_icon_l.png" alt="NearSpotio" /></div>
           <span class="brand-name" translate="no"><span class="brand-part"><span
-              style="display:inline-block;transform:scaleX(-1) rotate(90deg) scaleX(1.45) translateX(1px);color:var(--n-color);font-weight:700;margin-right:3px">S</span>ear</span><wbr><span class="brand-part"><span
-              style="display:inline-block;transform:scaleX(1.45);color:var(--s-color);font-weight:700;margin-left:2.5px;margin-right:1.5px">S</span>potio</span></span>
+                style="display:inline-block;transform:scaleX(-1) rotate(90deg) scaleX(1.45) translateX(1px);color:var(--n-color);font-weight:700;margin-right:3px">S</span>ear</span><wbr><span
+              class="brand-part"><span
+                style="display:inline-block;transform:scaleX(1.45);color:var(--s-color);font-weight:700;margin-left:2.5px;margin-right:1.5px">S</span>potio</span></span>
         </a>
         <a class="back-btn" href="/" id="nav-back">&larr; Startseite</a>
       </div>
@@ -509,7 +530,7 @@
     <div class="page-header-inner">
       <h1 id="page-title">Data Deletion Request / Datenlöschung</h1>
       <div class="sub-text" id="sub-date">
-        Stand: <strong>3. April 2026</strong>
+        Stand: <strong>26. Mai 2026</strong>
       </div>
     </div>
   </div>
@@ -524,19 +545,30 @@
           <p><span translate="no">NearSpotio</span> erhebt <strong>keine</strong> Namen, E-Mail-Adressen oder
             Benutzerkonten.</p>
           <p>Die App verwendet <span translate="no">Firebase</span>-Dienste (<span translate="no">Analytics</span> und
-            <span translate="no">Crashlytics</span>) zur Speicherung <strong>pseudonymer Nutzungsdaten</strong>, wie
-            z.&nbsp;B. Funktionsnutzung, Sitzungsdaten und technische Diagnosedaten. Diese Daten sind mit einer
-            zufälligen <strong>App-Installations-ID</strong> verknüpft. <span translate="no">Firebase</span> kann dabei
-            auch technische Gerätekennungen verarbeiten.</p>
+            <span translate="no">Crashlytics</span>) zur Speicherung <strong>pseudonymer
+              Nutzungsdaten</strong>, wie
+            z.&nbsp;B. Funktionsnutzung, Sitzungsdaten und technische Diagnosedaten. Diese Daten sind mit
+            einer
+            zufälligen <strong>App-Installations-ID</strong> verknüpft. <span translate="no">Firebase</span>
+            kann dabei
+            auch technische Gerätekennungen verarbeiten.
+          </p>
           <p>Zusätzlich verarbeitet <strong><span translate="no">Google AdMob</span></strong> (Werbung)
-            Werbe-Identifikatoren (<span translate="no">IDFA</span> / <span translate="no">Advertising ID</span>) auf
+            Werbe-Identifikatoren (<span translate="no">IDFA</span> / <span translate="no">Advertising
+              ID</span>) auf
             eigenen Servern von <span translate="no">Google</span>.</p>
-          <p>Für das Trial-System wird eine <strong>gehashte Geräte-ID</strong> (<span translate="no">SHA-256</span>) in
-            <strong><span translate="no">Google Cloud Firestore</span></strong> gespeichert, zusammen mit Plattform,
-            Registrierungszeitpunkt, Ablaufdaten und Export-Zähler.</p>
+          <p>Für das Trial-System wird eine <strong>pseudonyme Gerätekennung</strong> in
+            <strong><span translate="no">Google Cloud Firestore</span></strong> gespeichert, zusammen mit
+            Plattform,
+            Registrierungszeitpunkt, Ablaufdaten und Export-Zähler. Auf Android wird diese Kennung zufällig
+            erzeugt (nicht aus Geräteeigenschaften abgeleitet) und zusätzlich über den <span
+              translate="no">Google</span>-Dienst <strong>Block Store</strong> gespeichert; auf iOS wird
+            eine anbieterspezifische Kennung in gehashter Form verwendet.
+          </p>
 
           <h2>So beantragst du die Löschung deiner Daten</h2>
-          <p>Wenn du möchtest, dass alle mit deiner App-Installation verknüpften Daten gelöscht werden, gibt es zwei
+          <p>Wenn du möchtest, dass alle mit deiner App-Installation verknüpften Daten gelöscht werden, gibt
+            es zwei
             Möglichkeiten:</p>
 
           <h2>Option 1: Direkt in der App (empfohlen)</h2>
@@ -548,8 +580,10 @@
               <li>Bestätige die Löschung im Dialog</li>
             </ol>
           </div>
-          <p>Zur Verhinderung von Missbrauch der Testphase wird die pseudonyme Gerätekennung sowie der Testphasen-Status
-            auch nach Löschung beibehalten. Nach der Löschung werden nur noch die für die Testphasen-Verwaltung
+          <p>Zur Verhinderung von Missbrauch der Testphase wird die pseudonyme Gerätekennung sowie der
+            Testphasen-Status
+            auch nach Löschung beibehalten. Nach der Löschung werden nur noch die für die
+            Testphasen-Verwaltung
             notwendigen Daten gespeichert.</p>
 
           <h2>Option 2: Per E-Mail</h2>
@@ -570,36 +604,57 @@
           <ul>
             <li>Pseudonyme Nutzungsstatistiken (<span translate="no">Firebase Analytics</span>)</li>
             <li>Absturz- und Diagnosedaten (<span translate="no">Firebase Crashlytics</span>)</li>
-            <li>Nutzungsdaten in <span translate="no">Cloud Firestore</span> (gehashte Geräte-ID, Ablaufdaten,
+            <li>Nutzungsdaten in <span translate="no">Cloud Firestore</span> (pseudonyme Gerätekennung,
+              Ablaufdaten,
               Export-Zähler, <span translate="no">Pro</span>-Status, App-Starts, Spracheinstellung)</li>
           </ul>
 
           <h2>Was wir nicht direkt löschen können</h2>
           <p><strong>Werbe- und <span translate="no">AdMob</span>-Daten:</strong> <span translate="no">Google</span>
             verarbeitet Werbe-Identifikatoren (<span translate="no">IDFA</span> / <span translate="no">Advertising
-              ID</span>) als eigener Verantwortlicher bzw. Empfänger. Diese Daten können nicht über uns gelöscht werden.
+              ID</span>) als eigener Verantwortlicher bzw. Empfänger. Diese Daten können nicht über uns
+            gelöscht werden.
             Du kannst sie jedoch selbst steuern:</p>
           <ul>
-            <li>Werbe-ID in den <strong>Geräteeinstellungen zurücksetzen</strong> (Android: Einstellungen &rarr; Google
+            <li>Werbe-ID in den <strong>Geräteeinstellungen zurücksetzen</strong> (Android: Einstellungen
+              &rarr; Google
               &rarr; Werbung; iOS: Einstellungen &rarr; Datenschutz &rarr; Tracking)</li>
             <li><strong>Personalisierte Werbung deaktivieren</strong> in den Geräteeinstellungen</li>
-            <li>Unter iOS das <strong>Tracking über den <span translate="no">ATT</span>-Dialog ablehnen</strong></li>
+            <li>Unter iOS das <strong>Tracking über den <span translate="no">ATT</span>-Dialog
+                ablehnen</strong></li>
           </ul>
 
           <div class="note">
-            Nach der Löschung wird bei der nächsten Nutzung der App automatisch eine neue Installations-ID erstellt.
-            Bereits aggregierte und vollständig anonymisierte Statistiken (z.&nbsp;B. Gesamtanzahl der App-Starts)
+            Nach der Löschung wird bei der nächsten Nutzung der App automatisch eine neue Installations-ID
+            erstellt.
+            Bereits aggregierte und vollständig anonymisierte Statistiken (z.&nbsp;B. Gesamtanzahl der
+            App-Starts)
             können nicht einzeln entfernt werden, da sie keiner Installation zugeordnet sind.
           </div>
 
-          <h2>Hinweis für iOS-Nutzer</h2>
-          <p>Auf iOS wird die gehashte Geräte-ID zusätzlich im <strong><span translate="no">Keychain</span></strong> des
+          <h2>Hinweis für iOS- und Android-Nutzer</h2>
+          <p>Auf iOS wird die pseudonyme Gerätekennung zusätzlich im <strong><span
+                translate="no">Keychain</span></strong> des
             Geräts gespeichert. Diese Daten überleben eine Deinstallation der App. Um die <span
-              translate="no">Keychain</span>-Daten vollständig zu entfernen, musst du das Gerät auf Werkseinstellungen
-            zurücksetzen (<strong>Einstellungen &rarr; Allgemein &rarr; iPhone übertragen/zurücksetzen</strong>) oder
-            die App vor der Deinstallation über <strong>Einstellungen &rarr; Allgemein &rarr; iPhone-Speicher &rarr;
-              <span translate="no">NearSpotio</span> &rarr; App löschen</strong> entfernen. Alternativ kannst du uns per
+              translate="no">Keychain</span>-Daten vollständig zu entfernen, musst du das Gerät auf
+            Werkseinstellungen
+            zurücksetzen (<strong>Einstellungen &rarr; Allgemein &rarr; iPhone
+              übertragen/zurücksetzen</strong>) oder
+            die App vor der Deinstallation über <strong>Einstellungen &rarr; Allgemein &rarr;
+              iPhone-Speicher &rarr;
+              <span translate="no">NearSpotio</span> &rarr; App löschen</strong> entfernen. Alternativ
+            kannst du uns per
             E-Mail kontaktieren, damit wir die serverseitigen Daten zu deiner ID löschen.</p>
+          <p>Auf Android wird die pseudonyme Gerätekennung zusätzlich über den <span
+              translate="no">Google</span>-Play-Services-Dienst <strong>Block Store</strong> gespeichert
+            und – bei aktivierter <span translate="no">Google</span>-Sicherung – Ende-zu-Ende-verschlüsselt
+            in deinem <span translate="no">Google</span>-Konto gesichert. Auch diese Kennung überlebt eine
+            Deinstallation (Schutz der einmaligen Testphase). Um sie vollständig zu entfernen, deaktiviere
+            die <span translate="no">Google</span>-Sicherung bzw. lösche das App-Backup in deinem <span
+              translate="no">Google</span>-Konto (<strong>Einstellungen &rarr; Google &rarr;
+              Sicherung</strong>) und setze das Gerät ggf. auf Werkseinstellungen zurück. Alternativ
+            kontaktiere uns per E-Mail, damit wir die serverseitig gespeicherten Daten zu deiner ID
+            löschen.</p>
 
           <h2>Kontakt</h2>
           <p>Bei Fragen zur Datenlöschung kontaktiere uns unter:<br>
@@ -610,21 +665,33 @@
         <!-- ======================== ENGLISH ======================== -->
         <section id="sec-en" class="active">
           <h2>What data does <span translate="no">NearSpotio</span> collect?</h2>
-          <p><span translate="no">NearSpotio</span> does <strong>not</strong> collect names, email addresses, or user
+          <p><span translate="no">NearSpotio</span> does <strong>not</strong> collect names, email addresses,
+            or user
             accounts.</p>
-          <p>The app uses <span translate="no">Firebase</span> services (<span translate="no">Analytics</span> and <span
-              translate="no">Crashlytics</span>) to store <strong>pseudonymous usage data</strong> such as feature
-            usage, session data, and technical diagnostics. This data is linked to a random <strong>App Installation
-              ID</strong>. <span translate="no">Firebase</span> may also process technical device identifiers.</p>
-          <p>Additionally, <strong><span translate="no">Google AdMob</span></strong> (advertising) processes advertising
-            identifiers (<span translate="no">IDFA</span> / <span translate="no">Advertising ID</span>) on <span
-              translate="no">Google</span>'s own servers.</p>
-          <p>For the trial system, a <strong>hashed device ID</strong> (<span translate="no">SHA-256</span>) is stored
-            in <strong><span translate="no">Google Cloud Firestore</span></strong>, along with platform, registration
-            timestamp, expiry dates, and export counter.</p>
+          <p>The app uses <span translate="no">Firebase</span> services (<span translate="no">Analytics</span>
+            and <span translate="no">Crashlytics</span>) to store <strong>pseudonymous usage data</strong>
+            such as feature
+            usage, session data, and technical diagnostics. This data is linked to a random <strong>App
+              Installation
+              ID</strong>. <span translate="no">Firebase</span> may also process technical device
+            identifiers.</p>
+          <p>Additionally, <strong><span translate="no">Google AdMob</span></strong> (advertising) processes
+            advertising
+            identifiers (<span translate="no">IDFA</span> / <span translate="no">Advertising ID</span>) on
+            <span translate="no">Google</span>'s own servers.
+          </p>
+          <p>For the trial system, a <strong>pseudonymous device identifier</strong>
+            is stored
+            in <strong><span translate="no">Google Cloud Firestore</span></strong>, along with platform,
+            registration
+            timestamp, expiry dates, and export counter. On Android this identifier is randomly generated
+            (not derived from device characteristics) and additionally stored via the <span translate="no">Google</span>
+            <strong>Block Store</strong> service; on iOS a vendor-specific
+            identifier is used in hashed form.</p>
 
           <h2>How to request deletion of your data</h2>
-          <p>If you want all data associated with your app installation to be deleted, there are two options:</p>
+          <p>If you want all data associated with your app installation to be deleted, there are two options:
+          </p>
 
           <h2>Option 1: Directly in the app (recommended)</h2>
           <div class="steps">
@@ -635,7 +702,8 @@
               <li>Confirm the deletion in the dialog</li>
             </ol>
           </div>
-          <p>To prevent abuse of the trial period, the pseudonymous device identifier and trial status are retained even
+          <p>To prevent abuse of the trial period, the pseudonymous device identifier and trial status are
+            retained even
             after deletion. After deletion, only the data necessary for trial management will be stored.</p>
 
           <h2>Option 2: Via email</h2>
@@ -644,7 +712,8 @@
               <li>Open the <strong><span translate="no">NearSpotio</span></strong> app</li>
               <li>Go to <strong>Settings &rarr; Info</strong></li>
               <li>Copy your <strong>App Installation ID</strong></li>
-              <li>Send this ID via email to: <a class="eml" data-u="support" data-d="nearspotio.app"></a></li>
+              <li>Send this ID via email to: <a class="eml" data-u="support" data-d="nearspotio.app"></a>
+              </li>
             </ol>
           </div>
 
@@ -656,36 +725,54 @@
           <ul>
             <li>Pseudonymous usage statistics (<span translate="no">Firebase Analytics</span>)</li>
             <li>Crash and diagnostic data (<span translate="no">Firebase Crashlytics</span>)</li>
-            <li>Usage data in <span translate="no">Cloud Firestore</span> (hashed device ID, expiry dates, export
+            <li>Usage data in <span translate="no">Cloud Firestore</span> (pseudonymous device identifier, expiry dates,
+              export
               counter, <span translate="no">Pro</span> status, app launches, language setting)</li>
           </ul>
 
           <h2>What we cannot directly delete</h2>
           <p><strong>Advertising and <span translate="no">AdMob</span> data:</strong> <span translate="no">Google</span>
             processes advertising identifiers (<span translate="no">IDFA</span> / <span translate="no">Advertising
-              ID</span>) as a separate data controller/recipient. This data cannot be deleted through us. However, you
+              ID</span>) as a separate data controller/recipient. This data cannot be deleted through us.
+            However, you
             can manage it yourself:</p>
           <ul>
-            <li><strong>Reset your advertising ID</strong> in your device settings (Android: Settings &rarr; Google
+            <li><strong>Reset your advertising ID</strong> in your device settings (Android: Settings &rarr;
+              Google
               &rarr; Ads; iOS: Settings &rarr; Privacy &rarr; Tracking)</li>
             <li><strong>Disable personalized advertising</strong> in your device settings</li>
             <li>On iOS, <strong>deny tracking via the <span translate="no">ATT</span> dialog</strong></li>
           </ul>
 
           <div class="note">
-            After deletion, a new Installation ID will be created automatically the next time you use the app.
-            Aggregated, fully anonymized statistics (e.g. total number of app launches) cannot be individually removed,
+            After deletion, a new Installation ID will be created automatically the next time you use the
+            app.
+            Aggregated, fully anonymized statistics (e.g. total number of app launches) cannot be
+            individually removed,
             as they are not tied to any specific installation.
           </div>
 
-          <h2>Note for iOS Users</h2>
-          <p>On iOS, the hashed device ID is additionally stored in the device's <strong><span
-                translate="no">Keychain</span></strong>. This data survives app uninstallation. To fully remove the
+          <h2>Note for iOS and Android Users</h2>
+          <p>On iOS, the pseudonymous device identifier is additionally stored in the device's <strong><span
+                translate="no">Keychain</span></strong>. This data survives app uninstallation. To fully
+            remove the
             <span translate="no">Keychain</span> data, you need to reset the device to factory settings
             (<strong>Settings &rarr; General &rarr; Transfer or Reset iPhone</strong>) or remove the app via
             <strong>Settings &rarr; General &rarr; iPhone Storage &rarr; <span translate="no">NearSpotio</span> &rarr;
-              Delete App</strong> before uninstalling. Alternatively, you can contact us via email so we can delete the
-            server-side data associated with your ID.</p>
+              Delete App</strong> before uninstalling. Alternatively, you can contact us via email so we
+            can delete the
+            server-side data associated with your ID.
+          </p>
+          <p>On Android, the pseudonymous device identifier is additionally stored via the <span
+              translate="no">Google</span> Play Services <strong>Block Store</strong> service and — with
+            <span translate="no">Google</span> Backup enabled — backed up end-to-end encrypted in your <span
+              translate="no">Google</span> account. This identifier also survives an uninstallation (to
+            protect the one-time trial period). To fully remove it, disable <span translate="no">Google</span> Backup or
+            delete the app backup in your <span translate="no">Google</span> account (<strong>Settings &rarr; Google
+              &rarr; Backup</strong>)
+            and, if needed, reset the device to factory settings. Alternatively, contact us via email so we
+            can delete the server-side data associated with your ID.
+          </p>
 
           <h2>Contact</h2>
           <p>If you have questions about data deletion, please contact us at:<br>
@@ -735,7 +822,7 @@
       document.documentElement.lang = lang;
 
       pageTitle.textContent = isDe ? "Datenlöschung" : "Data Deletion Request";
-      document.getElementById("sub-date").innerHTML = isDe ? 'Stand: <strong>3. April 2026</strong>' : 'Last updated: <strong>April 3, 2026</strong>';
+      document.getElementById("sub-date").innerHTML = isDe ? 'Stand: <strong>26. Mai 2026</strong>' : 'Last updated: <strong>May 26, 2026</strong>';
       document.getElementById("nav-back").innerHTML = isDe ? '&larr; Startseite' : '&larr; Home';
       document.getElementById("link-home").textContent = isDe ? "Startseite" : "Home";
       document.getElementById("link-privacy").textContent = isDe ? "Datenschutz" : "Privacy";
