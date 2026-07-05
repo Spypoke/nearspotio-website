@@ -1,6 +1,6 @@
 <!-- =========================
      Datei: /tiktok/index.html
-     Landing page for TikTok-Ads traffic — fast first paint, auto-redirect to store.
+     Landing page for TikTok-Ads traffic — fast first paint, auto-redirect to store. Not Active
      ========================= -->
 <!doctype html>
 <html lang="en">
@@ -42,8 +42,18 @@
       --card-hover: rgba(255, 255, 255, .90);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { max-width: 100%; overflow-x: clip; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      max-width: 100%;
+      overflow-x: clip;
+    }
 
     body {
       font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -97,11 +107,26 @@
       max-width: 60vw;
     }
 
-    .logo img { width: 100%; height: auto; }
-    .logo-dark { display: block; }
-    .logo-light { display: none; }
-    [data-theme="light"] .logo-dark { display: none; }
-    [data-theme="light"] .logo-light { display: block; }
+    .logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .logo-dark {
+      display: block;
+    }
+
+    .logo-light {
+      display: none;
+    }
+
+    [data-theme="light"] .logo-dark {
+      display: none;
+    }
+
+    [data-theme="light"] .logo-light {
+      display: block;
+    }
 
     h1 {
       font-size: clamp(22px, 5.5vw, 30px);
@@ -190,9 +215,20 @@
       box-shadow: 0 8px 30px rgba(124, 92, 255, .12);
     }
 
-    .store-btn:active { transform: scale(.97); }
-    .store-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .store-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .store-btn:active {
+      transform: scale(.97);
+    }
+
+    .store-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .store-btn svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
 
     .fallback-hint {
       font-size: 12px;
@@ -202,7 +238,9 @@
       display: none;
     }
 
-    .fallback-hint.show { display: block; }
+    .fallback-hint.show {
+      display: block;
+    }
 
     .legal {
       position: absolute;
@@ -224,12 +262,27 @@
       transition: opacity .15s ease, color .15s ease;
     }
 
-    .legal a:hover { color: var(--text); opacity: 1; }
-    .legal a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .legal .sep { margin: 0 8px; opacity: .55; }
+    .legal a:hover {
+      color: var(--text);
+      opacity: 1;
+    }
+
+    .legal a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .legal .sep {
+      margin: 0 8px;
+      opacity: .55;
+    }
 
     @media (prefers-reduced-motion: reduce) {
-      body, .store-btn { transition: none; }
+
+      body,
+      .store-btn {
+        transition: none;
+      }
     }
   </style>
 
@@ -266,13 +319,15 @@
     <div class="store-links">
       <a class="store-btn" id="btn-play" href="#" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.707l2.108 1.22a1 1 0 0 1 0 1.74l-2.108 1.22-2.537-2.09 2.537-2.09zM5.864 3.458L16.8 9.79l-2.302 2.302-8.634-8.634z" />
+          <path
+            d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.707l2.108 1.22a1 1 0 0 1 0 1.74l-2.108 1.22-2.537-2.09 2.537-2.09zM5.864 3.458L16.8 9.79l-2.302 2.302-8.634-8.634z" />
         </svg>
         <span translate="no">Google Play</span>
       </a>
       <a class="store-btn" id="btn-apple" href="#" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+          <path
+            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
         </svg>
         <span translate="no">App Store</span>
       </a>
@@ -285,130 +340,130 @@
   </footer>
 
   <script>
-    (function () {
-      'use strict';
+      (function () {
+        'use strict';
 
-      var PLAY_URL = 'https://play.google.com/store/apps/details?id=app.nearspotio&utm_source=tiktok&utm_medium=cpc&utm_campaign=boost';
-      var APPLE_URL_HTTPS = 'https://apps.apple.com/app/nearspotio-bikepacking-pois/id6764373947?ct=tiktok&mt=8';
-      var APPLE_URL_ITMS = 'itms-apps://apps.apple.com/app/nearspotio-bikepacking-pois/id6764373947?ct=tiktok&mt=8';
+        var PLAY_URL = 'https://play.google.com/store/apps/details?id=app.nearspotio&utm_source=tiktok&utm_medium=cpc&utm_campaign=boost';
+        var APPLE_URL_HTTPS = 'https://apps.apple.com/app/nearspotio-bikepacking-pois/id6764373947?ct=tiktok&mt=8';
+        var APPLE_URL_ITMS = 'itms-apps://apps.apple.com/app/nearspotio-bikepacking-pois/id6764373947?ct=tiktok&mt=8';
 
-      var i18n = {
-        de: {
-          headline: '3,3 Mio. Bikepacking-POIs offline',
-          headlineAccent: 'für deine nächste Tour',
-          sub: 'Trinkwasser, Toiletten, Bäckereien, Apotheken, Supermärkte, Bike-Repair-Stationen, Bike-Shops, E-Bike-Charging, Schlauchautomaten — automatisch entlang deiner GPX-Route.',
-          devices: 'Funktioniert mit',
-          fallback: 'Tipp: Im Safari öffnen, falls der App Store nicht startet',
-          privacy: 'Datenschutz', imprint: 'Impressum'
-        },
-        en: {
-          headline: '3.3M offline bikepacking POIs',
-          headlineAccent: 'for your next tour',
-          sub: 'Drinking water, toilets, bakeries, pharmacies, supermarkets, bike repair stations, bike shops, e-bike charging, tube vending — automatically along your GPX route.',
-          devices: 'Works with',
-          fallback: 'Tip: open in Safari if the App Store doesn’t launch',
-          privacy: 'Privacy', imprint: 'Imprint'
-        },
-        fr: {
-          headline: '3,3 M de POI bikepacking hors-ligne',
-          headlineAccent: 'pour ton prochain voyage',
-          sub: 'Eau potable, toilettes, boulangeries, pharmacies, supermarchés, stations de réparation, magasins de vélo, recharge e-bike, distributeurs de chambres à air — automatiquement le long de ton GPX.',
-          devices: 'Compatible avec',
-          fallback: 'Astuce : ouvre dans Safari si l’App Store ne s’ouvre pas',
-          privacy: 'Confidentialité', imprint: 'Mentions légales'
-        },
-        it: {
-          headline: '3,3 mln di POI bikepacking offline',
-          headlineAccent: 'per il tuo prossimo tour',
-          sub: 'Acqua potabile, bagni, panetterie, farmacie, supermercati, stazioni di riparazione, negozi di bici, ricarica e-bike, distributori di camere d’aria — automaticamente lungo il tuo GPX.',
-          devices: 'Funziona con',
-          fallback: 'Suggerimento: apri in Safari se l’App Store non si avvia',
-          privacy: 'Privacy', imprint: 'Note legali'
-        },
-        es: {
-          headline: '3,3 M de POIs de bikepacking offline',
-          headlineAccent: 'para tu próxima ruta',
-          sub: 'Agua potable, baños, panaderías, farmacias, supermercados, estaciones de reparación, tiendas de bicis, carga e-bike, máquinas de cámaras — automáticamente en tu ruta GPX.',
-          devices: 'Compatible con',
-          fallback: 'Consejo: abre en Safari si la App Store no se inicia',
-          privacy: 'Privacidad', imprint: 'Aviso legal'
-        },
-        pl: {
-          headline: '3,3 mln POI dla bikepackingu offline',
-          headlineAccent: 'na Twoją kolejną trasę',
-          sub: 'Woda pitna, toalety, piekarnie, apteki, supermarkety, stacje naprawcze, sklepy rowerowe, ładowanie e-bike, automaty z dętkami — automatycznie wzdłuż Twojej trasy GPX.',
-          devices: 'Działa z',
-          fallback: 'Wskazówka: otwórz w Safari, jeśli App Store się nie uruchomi',
-          privacy: 'Prywatność', imprint: 'Informacje prawne'
-        },
-        nl: {
-          headline: '3,3 mln offline bikepacking-POI’s',
-          headlineAccent: 'voor je volgende tour',
-          sub: 'Drinkwater, toiletten, bakkers, apotheken, supermarkten, reparatiestations, fietswinkels, e-bike charging, binnenband-automaten — automatisch langs je GPX-route.',
-          devices: 'Werkt met',
-          fallback: 'Tip: open in Safari als de App Store niet start',
-          privacy: 'Privacy', imprint: 'Colofon'
+        var i18n = {
+          de: {
+            headline: '3,3 Mio. Bikepacking-POIs offline',
+            headlineAccent: 'für deine nächste Tour',
+            sub: 'Trinkwasser, Toiletten, Bäckereien, Apotheken, Supermärkte, Bike-Repair-Stationen, Bike-Shops, E-Bike-Charging, Schlauchautomaten — automatisch entlang deiner GPX-Route.',
+            devices: 'Funktioniert mit',
+            fallback: 'Tipp: Im Safari öffnen, falls der App Store nicht startet',
+            privacy: 'Datenschutz', imprint: 'Impressum'
+          },
+          en: {
+            headline: '3.3M offline bikepacking POIs',
+            headlineAccent: 'for your next tour',
+            sub: 'Drinking water, toilets, bakeries, pharmacies, supermarkets, bike repair stations, bike shops, e-bike charging, tube vending — automatically along your GPX route.',
+            devices: 'Works with',
+            fallback: 'Tip: open in Safari if the App Store doesn’t launch',
+            privacy: 'Privacy', imprint: 'Imprint'
+          },
+          fr: {
+            headline: '3,3 M de POI bikepacking hors-ligne',
+            headlineAccent: 'pour ton prochain voyage',
+            sub: 'Eau potable, toilettes, boulangeries, pharmacies, supermarchés, stations de réparation, magasins de vélo, recharge e-bike, distributeurs de chambres à air — automatiquement le long de ton GPX.',
+            devices: 'Compatible avec',
+            fallback: 'Astuce : ouvre dans Safari si l’App Store ne s’ouvre pas',
+            privacy: 'Confidentialité', imprint: 'Mentions légales'
+          },
+          it: {
+            headline: '3,3 mln di POI bikepacking offline',
+            headlineAccent: 'per il tuo prossimo tour',
+            sub: 'Acqua potabile, bagni, panetterie, farmacie, supermercati, stazioni di riparazione, negozi di bici, ricarica e-bike, distributori di camere d’aria — automaticamente lungo il tuo GPX.',
+            devices: 'Funziona con',
+            fallback: 'Suggerimento: apri in Safari se l’App Store non si avvia',
+            privacy: 'Privacy', imprint: 'Note legali'
+          },
+          es: {
+            headline: '3,3 M de POIs de bikepacking offline',
+            headlineAccent: 'para tu próxima ruta',
+            sub: 'Agua potable, baños, panaderías, farmacias, supermercados, estaciones de reparación, tiendas de bicis, carga e-bike, máquinas de cámaras — automáticamente en tu ruta GPX.',
+            devices: 'Compatible con',
+            fallback: 'Consejo: abre en Safari si la App Store no se inicia',
+            privacy: 'Privacidad', imprint: 'Aviso legal'
+          },
+          pl: {
+            headline: '3,3 mln POI dla bikepackingu offline',
+            headlineAccent: 'na Twoją kolejną trasę',
+            sub: 'Woda pitna, toalety, piekarnie, apteki, supermarkety, stacje naprawcze, sklepy rowerowe, ładowanie e-bike, automaty z dętkami — automatycznie wzdłuż Twojej trasy GPX.',
+            devices: 'Działa z',
+            fallback: 'Wskazówka: otwórz w Safari, jeśli App Store się nie uruchomi',
+            privacy: 'Prywatność', imprint: 'Informacje prawne'
+          },
+          nl: {
+            headline: '3,3 mln offline bikepacking-POI’s',
+            headlineAccent: 'voor je volgende tour',
+            sub: 'Drinkwater, toiletten, bakkers, apotheken, supermarkten, reparatiestations, fietswinkels, e-bike charging, binnenband-automaten — automatisch langs je GPX-route.',
+            devices: 'Werkt met',
+            fallback: 'Tip: open in Safari als de App Store niet start',
+            privacy: 'Privacy', imprint: 'Colofon'
+          }
+        };
+
+        var lang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+        if (!i18n[lang]) lang = 'en';
+        var t = i18n[lang];
+
+        document.documentElement.lang = lang;
+        document.title = 'NearSpotio — ' + t.headline;
+        document.getElementById('headline').textContent = t.headline;
+        var accent = document.getElementById('headline-accent');
+        if (t.headlineAccent) {
+          accent.textContent = t.headlineAccent;
+        } else {
+          accent.style.display = 'none';
+          var brEl = accent.previousElementSibling;
+          if (brEl && brEl.tagName === 'BR') brEl.style.display = 'none';
         }
-      };
+        document.getElementById('sub').textContent = t.sub;
+        document.getElementById('devices-label').textContent = t.devices || 'Works with';
+        document.getElementById('link-privacy').textContent = t.privacy;
+        document.getElementById('link-imprint').textContent = t.imprint;
 
-      var lang = (navigator.language || 'en').slice(0, 2).toLowerCase();
-      if (!i18n[lang]) lang = 'en';
-      var t = i18n[lang];
+        var ua = navigator.userAgent || '';
+        var isAndroid = /Android/i.test(ua);
+        var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-      document.documentElement.lang = lang;
-      document.title = 'NearSpotio — ' + t.headline;
-      document.getElementById('headline').textContent = t.headline;
-      var accent = document.getElementById('headline-accent');
-      if (t.headlineAccent) {
-        accent.textContent = t.headlineAccent;
-      } else {
-        accent.style.display = 'none';
-        var brEl = accent.previousElementSibling;
-        if (brEl && brEl.tagName === 'BR') brEl.style.display = 'none';
-      }
-      document.getElementById('sub').textContent = t.sub;
-      document.getElementById('devices-label').textContent = t.devices || 'Works with';
-      document.getElementById('link-privacy').textContent = t.privacy;
-      document.getElementById('link-imprint').textContent = t.imprint;
+        var btnPlay = document.getElementById('btn-play');
+        var btnApple = document.getElementById('btn-apple');
+        btnPlay.href = PLAY_URL;
+        btnApple.href = isIOS ? APPLE_URL_ITMS : APPLE_URL_HTTPS;
 
-      var ua = navigator.userAgent || '';
-      var isAndroid = /Android/i.test(ua);
-      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-      var btnPlay = document.getElementById('btn-play');
-      var btnApple = document.getElementById('btn-apple');
-      btnPlay.href = PLAY_URL;
-      btnApple.href = isIOS ? APPLE_URL_ITMS : APPLE_URL_HTTPS;
-
-      // window.gtag is exposed by /js/consent.js only after the user accepted analytics.
-      function trackStore(store) {
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'store_click', { store: store, transport_type: 'beacon' });
+        // window.gtag is exposed by /js/consent.js only after the user accepted analytics.
+        function trackStore(store) {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'store_click', { store: store, transport_type: 'beacon' });
+          }
         }
-      }
 
-      btnPlay.addEventListener('click', function () { trackStore('play'); });
-      btnApple.addEventListener('click', function () { trackStore('apple'); });
+        btnPlay.addEventListener('click', function () { trackStore('play'); });
+        btnApple.addEventListener('click', function () { trackStore('apple'); });
 
-      if (isIOS) {
-        var hint = document.getElementById('fallback-hint');
-        hint.textContent = t.fallback;
-        hint.classList.add('show');
-      }
+        if (isIOS) {
+          var hint = document.getElementById('fallback-hint');
+          hint.textContent = t.fallback;
+          hint.classList.add('show');
+        }
 
-      if (isAndroid) {
-        setTimeout(function () {
-          trackStore('play');
-          window.location.replace(PLAY_URL);
-        }, 300);
-      } else if (isIOS) {
-        setTimeout(function () {
-          trackStore('apple');
-          window.location.replace(APPLE_URL_ITMS);
-        }, 300);
-      }
-    })();
+        if (isAndroid) {
+          setTimeout(function () {
+            trackStore('play');
+            window.location.replace(PLAY_URL);
+          }, 300);
+        } else if (isIOS) {
+          setTimeout(function () {
+            trackStore('apple');
+            window.location.replace(APPLE_URL_ITMS);
+          }, 300);
+        }
+      })();
   </script>
 </body>
 
