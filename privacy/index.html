@@ -514,7 +514,7 @@
         <div class="page-header-inner">
             <h1 id="page-title">Privacy Policy</h1>
             <div class="sub" id="sub-text">
-                Last updated: <strong>July 5, 2026</strong>
+                Last updated: <strong>July 8, 2026</strong>
             </div>
         </div>
     </div>
@@ -672,6 +672,8 @@
                         <li>Anzahl der App-Starts</li>
                         <li>Spracheinstellung</li>
                         <li>App-Version</li>
+                        <li>Version der lokalen <span translate="no">POI</span>-Datenbank (technische Kennzahl, um zu
+                            erkennen, ob die <span translate="no">POI</span>-Daten aktuell sind)</li>
                         <li>Pseudonyme Nutzungsstatistiken: <span translate="no">POI</span>-Aktionen (z.&nbsp;B.
                             Navigation, Teilen), Anzahl der Routenimporte, Anzahl gemeldeter <span
                                 translate="no">POI</span>-Korrekturen</li>
@@ -776,7 +778,8 @@
                             Geräteinformationen</li>
                         <li><strong>Google Cloud Firestore</strong> – Pseudonyme Gerätekennung, Plattform, OS-Version,
                             Gerätehersteller, Gerätemodell, Installationsquelle, Ablaufdaten, Export-Zähler,
-                            Kategorie-Nutzung, <span translate="no">POI</span>-Aktionen, App-Einstellungen, Regionen der
+                            Kategorie-Nutzung, <span translate="no">POI</span>-Aktionen, <span translate="no">POI</span>-Datenbankversion,
+                            App-Einstellungen, Regionen der
                             Route-<span translate="no">POI</span>s, <span translate="no">POI</span>-Korrekturmeldungen,
                             Absturzzähler, Promo-Code-Versuche, eingelöster Code-Hash, Promo-Status und
                             Promo-Ablaufdatum (Trial-System, Promo-System und Nutzungsanalyse)</li>
@@ -1125,6 +1128,8 @@
                         <li>Number of app launches</li>
                         <li>Language setting</li>
                         <li>App version</li>
+                        <li>Version of the local <span translate="no">POI</span> database (technical value used to detect
+                            whether the <span translate="no">POI</span> data is up to date)</li>
                         <li>Pseudonymous usage statistics: <span translate="no">POI</span> actions (e.g. navigation,
                             sharing), number of route imports, number of submitted <span translate="no">POI</span>
                             corrections</li>
@@ -1222,7 +1227,8 @@
                             information</li>
                         <li><strong>Google Cloud Firestore</strong> – Pseudonymous device identifier, platform, OS version, device
                             manufacturer, device model, install source, expiry dates, export counter,
-                            category usage, <span translate="no">POI</span> actions, app settings, regions of route
+                            category usage, <span translate="no">POI</span> actions, <span translate="no">POI</span> database version,
+                            app settings, regions of route
                             <span translate="no">POI</span>s, <span translate="no">POI</span> correction reports, crash
                             counter, promo code attempts, redeemed code hash, promo status and promo expiration date
                             (trial system, promo system and usage analysis)</li>
@@ -1468,8 +1474,8 @@
             document.getElementById("foot-deletion").textContent = isDe ? "Datenl\u00f6schung" : "Data Deletion";
             document.getElementById("foot-cookies").textContent = isDe ? "Cookie-Einstellungen" : "Cookie settings";
             document.getElementById("sub-text").innerHTML = isDe
-                ? 'Stand: <strong>5. Juli 2026</strong>'
-                : 'Last updated: <strong>July 5, 2026</strong>';
+                ? 'Stand: <strong>8. Juli 2026</strong>'
+                : 'Last updated: <strong>July 8, 2026</strong>';
 
             localStorage.setItem("nearspotio-lang", lang);
         }
