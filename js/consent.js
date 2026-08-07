@@ -1,4 +1,4 @@
-/* NearSpotio — Cookie consent + Google Analytics 4 loader
+/* NearSpotio - Cookie consent + Google Analytics 4 loader
    Strategy: GA4 is only loaded AFTER the user actively accepts the "analytics"
    category. Before that, no gtag script is requested, no cookies are set. */
 (function () {
